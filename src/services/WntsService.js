@@ -8,6 +8,10 @@ const get = (id) => {
   return http.get(`/GasComponent_/${id}`);
 };
 
+const getDate = (startDate, endDate) => {
+  return http.get(`/GasComponent_/${startDate}/${endDate}`);
+};
+
 const create = (data) => {
   return http.post("/GasComponent_", data);
 };
@@ -31,6 +35,7 @@ const findByTitle = (title) => {
 const values = {
   getAll,
   get,
+  getDate,
   create,
   update,
   remove,
