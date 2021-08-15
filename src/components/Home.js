@@ -142,7 +142,7 @@ const Home = (props) => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          height: "100vh",
+          height: "90vh",
           // height: "850px",
           //height: "100%",
           //maxWidth: "100%",
@@ -151,12 +151,16 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "5%",
+              //width: "10%",
+              //height: "5%",
+              width: "8vw",
+              height: "10vh",
               fontSize: "10px",
-              marginLeft: "300px",
-              marginTop: "50px",
-              display: "inline-block",
+              marginLeft: "500px",
+              marginTop: "200px",
+              // display: "inline-block",
+              position: "absolute",
+              zIndex: "0",
             },
           })}>
           <tbody {...getTableBodyProps()}>
@@ -187,12 +191,16 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "5%",
+              //width: "10%",
+              //height: "5%",
+              width: "8vw",
+              height: "10vh",
               fontSize: "10px",
-              marginLeft: "700px",
-              marginTop: "50px",
-              display: "inline-block",
+              marginLeft: "750px",
+              marginTop: "30px",
+              // display: "inline-block",
+              position: "absolute",
+              zIndex: "0",
             },
           })}>
           <tbody {...getTableBodyProps()}>
@@ -220,12 +228,16 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "5%",
+              //width: "10%",
+              //height: "5%",
+              width: "8vw",
+              height: "10vh",
               fontSize: "10px",
-              marginLeft: "1100px",
-              marginTop: "200px",
-              display: "inline-block",
+              marginLeft: "1350px",
+              marginTop: "20px",
+              // display: "inline-block",
+              position: "absolute",
+              zIndex: "0",
             },
           })}>
           <tbody {...getTableBodyProps()}>
@@ -253,12 +265,53 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "5%",
+              // width: "10%",
+              // height: "5%",
+              width: "8vw",
+              height: "10vh",
               fontSize: "10px",
-              marginLeft: "600px",
-              marginTop: "-300px",
-              display: "inline-block",
+              marginLeft: "1350px",
+              marginTop: "250px",
+              //display: "inline-block",
+              position: "absolute",
+              zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row) => {
+                  prepareRow(row);
+                  return row.cells.map((cell, i) => {
+                    if (a === i) {
+                      return (
+                        <tr {...column.getHeaderProps()}>
+                          <th>{column.render("Header")}</th>
+                          <td>{cell.render("Cell")}</td>
+                        </tr>
+                      );
+                    }
+                  });
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              // width: "10%",
+              // height: "5%",
+              width: "8vw",
+              height: "10vh",
+              fontSize: "10px",
+              marginLeft: "1000px",
+              marginTop: "350px",
+              //display: "inline-block",
+              position: "absolute",
+              zIndex: "0",
             },
           })}>
           <tbody {...getTableBodyProps()}>
