@@ -8,6 +8,7 @@ const Header = () => {
   const [endDate, setEndDate] = useState(new Date());
   return (
     <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+      <App start={startDate} end={endDate} />
       {/* Left navbar links */}
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -44,7 +45,7 @@ const Header = () => {
             <i className="fas fa-search" />
           </a>
           <div className="navbar-search-block">
-            <Home start={startDate} end={endDate} />
+            {/* <Home start={startDate} end={endDate} /> */}
             {/* <App start={startDate} end={endDate} /> */}
             <form className="form-inline">
               <div className="input-group input-group-sm">
