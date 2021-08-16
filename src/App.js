@@ -19,10 +19,10 @@ import Dashboard from "./components/Maindashboard";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [startDate, setStartDate] = useState("2019-09-11 00:00:00");
+  const [startDate, setStartDate] = useState("2019-09-10 00:00:00");
   const [endDate, setEndDate] = useState("2019-09-12 00:00:00");
   const { RangePicker } = DatePicker;
-  const dateTimeFormat = "YYYY/MM/DD HH:mm:ss";
+  const dateTimeFormat = "YYYY/MM/DD hh:mm:ss";
   const customFormat = (value) => {
     value.format(dateTimeFormat);
   };
