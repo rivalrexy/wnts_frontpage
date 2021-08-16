@@ -179,15 +179,25 @@ const Home = (props) => {
                     prepareRow(row);
                     return row.cells.map((cell, i) => {
                       if (a === i) {
-                        return (
-                          // <tr {...column.getHeaderProps()}>
-                          <tr
-                            {...row.getRowProps()}
-                            onClick={() => console.log(row.original)}>
-                            <th>{column.render("Header")}</th>
-                            <td>{cell.render("Cell")}</td>
-                          </tr>
-                        );
+                        if (column.render("Header") === "ASSET ID") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              onClick={() => console.log(row.original)}>
+                              {/* <td></td> */}
+                              <th colSpan="2">HANG TUAH</th>
+                            </tr>
+                          );
+                        } else {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              onClick={() => console.log(row.original)}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")}</td>
+                            </tr>
+                          );
+                        }
                       }
                     });
                   }
@@ -223,17 +233,24 @@ const Home = (props) => {
                       row.cells
                         // .filter((rows2) => rows2.ASSET_ID == 1)
                         .map((cell, i) => {
-                          if (
-                            a === i //&&
-                            //column.render("Header") === "ASSET ID" &&
-                            //cell.value === 1
-                          ) {
-                            return (
-                              <tr {...column.getHeaderProps()}>
-                                <th>{column.render("Header")}</th>
-                                <td>{cell.render("Cell")}</td>
-                              </tr>
-                            );
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th colSpan="2">ANOA</th>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr {...column.getHeaderProps()}>
+                                  <th>{column.render("Header")}</th>
+                                  <td>{cell.render("Cell")}</td>
+                                </tr>
+                              );
+                            }
                           }
                         })
                     );
@@ -268,12 +285,23 @@ const Home = (props) => {
                     prepareRow(row);
                     return row.cells.map((cell, i) => {
                       if (a === i) {
-                        return (
-                          <tr {...column.getHeaderProps()}>
-                            <th>{column.render("Header")}</th>
-                            <td>{cell.render("Cell")}</td>
-                          </tr>
-                        );
+                        if (column.render("Header") === "ASSET ID") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              onClick={() => console.log(row.original)}>
+                              {/* <td></td> */}
+                              <th colSpan="2">PELIKAN</th>
+                            </tr>
+                          );
+                        } else {
+                          return (
+                            <tr {...column.getHeaderProps()}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")}</td>
+                            </tr>
+                          );
+                        }
                       }
                     });
                   }
@@ -307,12 +335,23 @@ const Home = (props) => {
                     prepareRow(row);
                     return row.cells.map((cell, i) => {
                       if (a === i) {
-                        return (
-                          <tr {...column.getHeaderProps()}>
-                            <th>{column.render("Header")}</th>
-                            <td>{cell.render("Cell")}</td>
-                          </tr>
-                        );
+                        if (column.render("Header") === "ASSET ID") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              onClick={() => console.log(row.original)}>
+                              {/* <td></td> */}
+                              <th colSpan="2">GAJAH BARU</th>
+                            </tr>
+                          );
+                        } else {
+                          return (
+                            <tr {...column.getHeaderProps()}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")}</td>
+                            </tr>
+                          );
+                        }
                       }
                     });
                   }
@@ -346,12 +385,23 @@ const Home = (props) => {
                     prepareRow(row);
                     return row.cells.map((cell, i) => {
                       if (a === i) {
-                        return (
-                          <tr {...column.getHeaderProps()}>
-                            <th>{column.render("Header")}</th>
-                            <td>{cell.render("Cell")}</td>
-                          </tr>
-                        );
+                        if (column.render("Header") === "ASSET ID") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              onClick={() => console.log(row.original)}>
+                              {/* <td></td> */}
+                              <th colSpan="2">KAKAP</th>
+                            </tr>
+                          );
+                        } else {
+                          return (
+                            <tr {...column.getHeaderProps()}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")}</td>
+                            </tr>
+                          );
+                        }
                       }
                     });
                   }
