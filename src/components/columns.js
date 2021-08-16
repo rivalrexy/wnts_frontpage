@@ -9,11 +9,11 @@ export const COLUMNS = [
   },
   {
     Header: "VOLUME",
-    accessor: "VOLUME",
+    accessor: "VOLUME_RATE",
   },
   {
     Header: "ENERGY",
-    accessor: "ENERGY",
+    accessor: "ENERGY_RATE",
   },
   {
     Header: "TEMPERATURE",
@@ -23,12 +23,12 @@ export const COLUMNS = [
     Header: "PRESSURE",
     accessor: "PRESSURE",
   },
-  {
-    Header: "ENERGY RATE",
-    accessor: "ENERGY_RATE",
-  },
-  {
-    Header: "VOLUME RATE",
-    accessor: "VOLUME_RATE",
-  },
+  //   {
+  //     Header: "ENERGY RATE",
+  //     accessor: "ENERGY_RATE",
+  //   },
+  //   {
+  //     Header: "VOLUME RATE",
+  //     accessor: "VOLUME_RATE",
+  //   },
 ];

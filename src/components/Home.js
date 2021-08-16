@@ -185,14 +185,17 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
                               {/* <td></td> */}
-                              <th colSpan="2">HANG TUAH</th>
+                              <th colSpan="2" style={{ textAlign: "center" }}>
+                                HANG TUAH
+                              </th>
                             </tr>
                           );
                         } else {
                           return (
                             <tr
                               {...row.getRowProps()}
-                              onClick={() => console.log(row.original)}>
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
                               <th>{column.render("Header")}</th>
                               <td>{cell.render("Cell")}</td>
                             </tr>
@@ -240,7 +243,11 @@ const Home = (props) => {
                                   {...row.getRowProps()}
                                   onClick={() => console.log(row.original)}>
                                   {/* <td></td> */}
-                                  <th colSpan="2">ANOA</th>
+                                  <th
+                                    colSpan="2"
+                                    style={{ textAlign: "center" }}>
+                                    ANOA
+                                  </th>
                                 </tr>
                               );
                             } else {
@@ -291,7 +298,9 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
                               {/* <td></td> */}
-                              <th colSpan="2">PELIKAN</th>
+                              <th colSpan="2" style={{ textAlign: "center" }}>
+                                PELIKAN
+                              </th>
                             </tr>
                           );
                         } else {
@@ -341,7 +350,9 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
                               {/* <td></td> */}
-                              <th colSpan="2">GAJAH BARU</th>
+                              <th colSpan="2" style={{ textAlign: "center" }}>
+                                GAJAH BARU
+                              </th>
                             </tr>
                           );
                         } else {
@@ -391,7 +402,9 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
                               {/* <td></td> */}
-                              <th colSpan="2">KAKAP</th>
+                              <th colSpan="2" style={{ textAlign: "center" }}>
+                                KAKAP
+                              </th>
                             </tr>
                           );
                         } else {
