@@ -159,13 +159,13 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "8vw",
+              width: "10vw",
               height: "10vh",
               //width: "10%",
               //height: "20%",
               fontSize: "10px",
               top: "15%",
-              left: "25%",
+              left: "23%",
               transform: `translate(50%, 50%)`,
               //marginLeft: "500px",
               //marginTop: "200px",
@@ -194,6 +194,36 @@ const Home = (props) => {
                               </th>
                             </tr>
                           );
+                        } else if (column.render("Header") === "VOLUME") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} BBTU/D</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "ENERGY") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} MMSCFD</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "TEMPERATURE") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} Deg F</td>
+                            </tr>
+                          );
                         } else {
                           return (
                             <tr
@@ -201,7 +231,7 @@ const Home = (props) => {
                               //data-href="#"
                               onClick={() => console.log("test")}>
                               <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")}</td>
+                              <td>{cell.render("Cell")} Psig</td>
                             </tr>
                           );
                         }
@@ -218,8 +248,8 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "10%",
+              width: "10vw",
+              height: "10vh",
               fontSize: "10px",
               top: "5%",
               left: "40%",
@@ -253,11 +283,46 @@ const Home = (props) => {
                                   </th>
                                 </tr>
                               );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th>{column.render("Header")}</th>
+                                  <td>{cell.render("Cell")} BBTU/D</td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th>{column.render("Header")}</th>
+                                  <td>{cell.render("Cell")} MMSCFD</td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th>{column.render("Header")}</th>
+                                  <td>{cell.render("Cell")} Deg F</td>
+                                </tr>
+                              );
                             } else {
                               return (
-                                <tr {...column.getHeaderProps()}>
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
                                   <th>{column.render("Header")}</th>
-                                  <td>{cell.render("Cell")}</td>
+                                  <td>{cell.render("Cell")} Psig</td>
                                 </tr>
                               );
                             }
@@ -275,8 +340,8 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "10%",
+              width: "10vw",
+              height: "10vh",
               fontSize: "10px",
               top: "2%",
               left: "75%",
@@ -309,11 +374,44 @@ const Home = (props) => {
                               </th>
                             </tr>
                           );
+                        } else if (column.render("Header") === "VOLUME") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} BBTU/D</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "ENERGY") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} MMSCFD</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "TEMPERATURE") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} Deg F</td>
+                            </tr>
+                          );
                         } else {
                           return (
-                            <tr {...column.getHeaderProps()}>
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
                               <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")}</td>
+                              <td>{cell.render("Cell")} Psig</td>
                             </tr>
                           );
                         }
@@ -330,8 +428,8 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "10%",
+              width: "10vw",
+              height: "10vh",
               fontSize: "10px",
               top: "25%",
               left: "75%",
@@ -364,11 +462,44 @@ const Home = (props) => {
                               </th>
                             </tr>
                           );
+                        } else if (column.render("Header") === "VOLUME") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} BBTU/D</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "ENERGY") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} MMSCFD</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "TEMPERATURE") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} Deg F</td>
+                            </tr>
+                          );
                         } else {
                           return (
-                            <tr {...column.getHeaderProps()}>
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
                               <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")}</td>
+                              <td>{cell.render("Cell")} Psig</td>
                             </tr>
                           );
                         }
@@ -385,8 +516,8 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "10%",
+              width: "10vw",
+              height: "10vh",
               fontSize: "10px",
               top: "40%",
               left: "55%",
@@ -419,11 +550,44 @@ const Home = (props) => {
                               </th>
                             </tr>
                           );
+                        } else if (column.render("Header") === "VOLUME") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} BBTU/D</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "ENERGY") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} MMSCFD</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "TEMPERATURE") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} Deg F</td>
+                            </tr>
+                          );
                         } else {
                           return (
-                            <tr {...column.getHeaderProps()}>
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
                               <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")}</td>
+                              <td>{cell.render("Cell")} Psig</td>
                             </tr>
                           );
                         }
@@ -440,8 +604,8 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10%",
-              height: "10%",
+              width: "10vw",
+              height: "10vh",
               fontSize: "10px",
               top: "50%",
               left: "2%",
@@ -474,11 +638,45 @@ const Home = (props) => {
                               </th>
                             </tr>
                           );
+                        }
+                        if (column.render("Header") === "VOLUME") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} BBTU/D</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "ENERGY") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} MMSCFD</td>
+                            </tr>
+                          );
+                        } else if (column.render("Header") === "TEMPERATURE") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")} Deg F</td>
+                            </tr>
+                          );
                         } else {
                           return (
-                            <tr {...column.getHeaderProps()}>
+                            <tr
+                              {...row.getRowProps()}
+                              //data-href="#"
+                              onClick={() => console.log("test")}>
                               <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")}</td>
+                              <td>{cell.render("Cell")} Psig</td>
                             </tr>
                           );
                         }
