@@ -159,16 +159,20 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              //width: "10%",
-              //height: "5%",
               width: "8vw",
               height: "10vh",
+              //width: "10%",
+              //height: "20%",
               fontSize: "10px",
-              marginLeft: "500px",
-              marginTop: "200px",
+              top: "15%",
+              left: "25%",
+              transform: `translate(50%, 50%)`,
+              //marginLeft: "500px",
+              //marginTop: "200px",
               // display: "inline-block",
               position: "absolute",
               zIndex: "0",
+              overflowX: "auto",
             },
           })}>
           <tbody {...getTableBodyProps()}>
@@ -214,16 +218,15 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              //width: "10%",
-              //height: "5%",
-              width: "8vw",
-              height: "10vh",
+              width: "10%",
+              height: "10%",
               fontSize: "10px",
-              marginLeft: "750px",
-              marginTop: "30px",
+              top: "5%",
+              left: "40%",
+              transform: `translate(50%, 5%)`,
               // display: "inline-block",
               position: "absolute",
-              zIndex: "0",
+              //zIndex: "0",
             },
           })}>
           <tbody {...getTableBodyProps()}>
@@ -272,14 +275,17 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              //width: "10%",
-              //height: "5%",
-              width: "8vw",
-              height: "10vh",
+              width: "10%",
+              height: "10%",
               fontSize: "10px",
-              marginLeft: "1350px",
-              marginTop: "20px",
-              // display: "inline-block",
+              top: "2%",
+              left: "75%",
+              transform: `translate(75%, 2%)`,
+              // width: "8vw",
+              // height: "10vh",
+              // fontSize: "10px",
+              // marginLeft: "1350px",
+              // marginTop: "20px",
               position: "absolute",
               zIndex: "0",
             },
@@ -324,14 +330,17 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              // width: "10%",
-              // height: "5%",
-              width: "8vw",
-              height: "10vh",
+              width: "10%",
+              height: "10%",
               fontSize: "10px",
-              marginLeft: "1350px",
-              marginTop: "300px",
-              //display: "inline-block",
+              top: "25%",
+              left: "75%",
+              transform: `translate(75%, 2%)`,
+              // width: "8vw",
+              // height: "10vh",
+              // fontSize: "10px",
+              // marginLeft: "1350px",
+              // marginTop: "300px",
               position: "absolute",
               zIndex: "0",
             },
@@ -376,14 +385,17 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              // width: "10%",
-              // height: "5%",
-              width: "8vw",
-              height: "10vh",
+              width: "10%",
+              height: "10%",
               fontSize: "10px",
-              marginLeft: "1000px",
-              marginTop: "350px",
-              //display: "inline-block",
+              top: "40%",
+              left: "55%",
+              transform: `translate(75%, 2%)`,
+              // width: "8vw",
+              // height: "10vh",
+              // fontSize: "10px",
+              // marginLeft: "1000px",
+              // marginTop: "350px",
               position: "absolute",
               zIndex: "0",
             },
@@ -404,6 +416,61 @@ const Home = (props) => {
                               {/* <td></td> */}
                               <th colSpan="2" style={{ textAlign: "center" }}>
                                 KAKAP
+                              </th>
+                            </tr>
+                          );
+                        } else {
+                          return (
+                            <tr {...column.getHeaderProps()}>
+                              <th>{column.render("Header")}</th>
+                              <td>{cell.render("Cell")}</td>
+                            </tr>
+                          );
+                        }
+                      }
+                    });
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10%",
+              height: "10%",
+              fontSize: "10px",
+              top: "50%",
+              left: "2%",
+              transform: `translate(2%, 50%)`,
+              // width: "8vw",
+              // height: "10vh",
+              // fontSize: "10px",
+              // marginLeft: "50px",
+              // marginTop: "550px",
+              position: "absolute",
+              zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 5) {
+                    prepareRow(row);
+                    return row.cells.map((cell, i) => {
+                      if (a === i) {
+                        if (column.render("Header") === "ASSET ID") {
+                          return (
+                            <tr
+                              {...row.getRowProps()}
+                              onClick={() => console.log(row.original)}>
+                              {/* <td></td> */}
+                              <th colSpan="2" style={{ textAlign: "center" }}>
+                                ORF
                               </th>
                             </tr>
                           );

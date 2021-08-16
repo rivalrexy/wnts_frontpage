@@ -22,7 +22,7 @@ const App = () => {
   const [startDate, setStartDate] = useState("2019-09-10 00:00:00");
   const [endDate, setEndDate] = useState("2019-09-12 00:00:00");
   const { RangePicker } = DatePicker;
-  const dateTimeFormat = "YYYY/MM/DD hh:mm:ss";
+  const dateTimeFormat = "YYYY/MM/DD hh:mm";
   const customFormat = (value) => {
     value.format(dateTimeFormat);
   };
@@ -47,7 +47,7 @@ const App = () => {
   };
 
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <nav className="main-header navbar navbar-expand navbar-white navbar-light">
         <ul className="navbar-nav">
           <li className="nav-item">
@@ -75,8 +75,8 @@ const App = () => {
           {/* <Space direction="vertical" size={12}> */}
           <RangePicker
             defaultValue={dateRange}
-            showTime={{ format: "HH:mm:ss" }}
-            format="YYYY-MM-DD HH:mm:ss"
+            showTime={{ format: "HH" }}
+            format="YYYY-MM-DD HH"
             onChange={onChange}
             onOk={onOk}
           />
