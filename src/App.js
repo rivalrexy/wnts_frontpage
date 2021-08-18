@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { DateRangePicker } from "rsuite";
 import "rsuite/dist/styles/rsuite-default.css";
 import "antd/dist/antd.css";
-import { DatePicker, Space } from "antd";
+import { DatePicker, Space, TimePicker, Button } from "antd";
 import moment from "moment";
 
 import Home from "./components/Home";
@@ -19,25 +19,80 @@ import Dashboard from "./components/Maindashboard";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [startDate, setStartDate] = useState("2019-09-10 00:00:00");
-  const [endDate, setEndDate] = useState("2019-09-12 00:00:00");
+  //const [startDate, setStartDate] = useState(new Date());
+  //const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date("2019-09-10 00:00:00"));
+  const [endDate, setEndDate] = useState(new Date("2019-09-11 00:00:00"));
   const { RangePicker } = DatePicker;
-  const dateTimeFormat = "YYYY/MM/DD hh:mm";
+  const dateTimeFormat = "YYYY/MM/DD HH:00";
+  const [val, setVal] = useState(null);
   const customFormat = (value) => {
     value.format(dateTimeFormat);
   };
   const dateRange = [
-    moment("2019-09-11 00:00:00", dateTimeFormat),
-    moment("2019-09-12 00:00:00", dateTimeFormat),
+    moment(startDate, dateTimeFormat),
+    moment(endDate, dateTimeFormat),
   ];
 
   const onChange = (value, dateString) => {
     if (dateString !== undefined) {
       setStartDate(dateString[0]);
       setEndDate(dateString[1]);
-      console.log(dateString);
-      console.log(dateString[0]);
-      console.log(dateString[1]);
+      //console.log(dateString);
+      //console.log(dateString[0]);
+      //console.log(dateString[1]);
+    }
+  };
+
+  const onClickNext = () => {
+    //new Date(endDate);
+    let valueEndDate = endDate.getHours();
+    let valueStartDate = startDate.getHours();
+    endDate.setMinutes(0);
+    endDate.setSeconds(0);
+
+    startDate.setMinutes(0);
+    startDate.setSeconds(0);
+    if (endDate !== undefined && startDate !== undefined) {
+      if (valueEndDate < 24 || valueStartDate < 24) {
+        valueEndDate = valueEndDate + 1;
+        endDate.setHours(valueEndDate);
+        console.log(endDate.getHours());
+        console.log(endDate);
+        setEndDate(new Date(endDate));
+
+        valueStartDate = valueStartDate + 1;
+        startDate.setHours(valueStartDate);
+        console.log(startDate.getHours());
+        console.log(startDate);
+        setStartDate(new Date(startDate));
+      }
+    }
+  };
+
+  const onClickPrev = () => {
+    //new Date(endDate);
+    let valueEndDate = endDate.getHours();
+    let valueStartDate = startDate.getHours();
+    endDate.setMinutes(0);
+    endDate.setSeconds(0);
+
+    startDate.setMinutes(0);
+    startDate.setSeconds(0);
+    if (endDate !== undefined && startDate !== undefined) {
+      if (valueEndDate < 24 || valueStartDate < 24) {
+        valueEndDate = valueEndDate - 1;
+        endDate.setHours(valueEndDate);
+        console.log(endDate.getHours());
+        console.log(endDate);
+        setEndDate(new Date(endDate));
+
+        valueStartDate = valueStartDate - 1;
+        startDate.setHours(valueStartDate);
+        console.log(startDate.getHours());
+        console.log(startDate);
+        setStartDate(new Date(startDate));
+      }
     }
   };
 
@@ -45,6 +100,26 @@ const App = () => {
     console.log(startDate);
     console.log(endDate);
   };
+
+  const range = (start, end) => {
+    return Array(end - start + 1)
+      .fill()
+      .map((_, idx) => start + idx);
+  };
+
+  // useEffect(() => {
+  //   //if (homeDate.length > 0) {
+  //   setEndDate(endDate);
+  //   console.log("DID UPDATE");
+  //   //}
+  // }, [endDate]);
+
+  // const timePickerBlur = (time) => {
+  //   //Ofc you can use state or whatever here :)
+  //   this.formRef.current.setFieldsValue({
+  //     time_of_day: time,
+  //   });
+  // };
 
   return (
     <div className="wrapper">
@@ -73,13 +148,47 @@ const App = () => {
         {/* Right navbar links */}
         <ul className="navbar-nav ml-auto">
           {/* <Space direction="vertical" size={12}> */}
+          {/* <TimePicker needsConfirmation={true} /> */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transform: "translate(-10%, 0%)",
+            }}>
+            <Button onClick={onClickPrev} type="primary" shape="circle">
+              {"<"}
+            </Button>
+          </div>
           <RangePicker
-            defaultValue={dateRange}
-            showTime={{ format: "HH" }}
-            format="YYYY-MM-DD HH"
+            //defaultValue={dateRange}
+            value={dateRange}
+            //showTime={{ format: "HH" }}
+            // ranges={{
+            //   Today: [moment(), moment()],
+            //   "This Month": [
+            //     moment().startOf("month"),
+            //     moment().endOf("month"),
+            //   ],
+            // }}
+            showTime={{ format: "HH:00" }}
+            format="YYYY-MM-DD HH:00"
+            //needsConfirmation={false}
             onChange={onChange}
+            //disabledMinutes={() => [...range(1, 59)]}
             onOk={onOk}
           />
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transform: "translate(10%, 0%)",
+            }}>
+            <Button onClick={onClickNext} type="primary" shape="circle">
+              {">"}
+            </Button>
+          </div>
           <li className="nav-item">
             <a
               className="nav-link"
