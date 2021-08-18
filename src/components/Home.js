@@ -164,8 +164,8 @@ const Home = (props) => {
               //width: "10%",
               //height: "20%",
               fontSize: "10px",
-              top: "15%",
-              left: "23%",
+              top: "25%",
+              left: "20%",
               transform: `translate(50%, 50%)`,
               //marginLeft: "500px",
               //marginTop: "200px",
@@ -200,8 +200,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} BBTU/D</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} BBTU/D
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "ENERGY") {
@@ -210,8 +222,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} MMSCFD</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} MMSCFD
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "TEMPERATURE") {
@@ -220,8 +244,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Deg F</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Deg F
+                              </td>
                             </tr>
                           );
                         } else {
@@ -230,8 +266,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Psig</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Psig
+                              </td>
                             </tr>
                           );
                         }
@@ -251,8 +299,8 @@ const Home = (props) => {
               width: "10vw",
               height: "10vh",
               fontSize: "10px",
-              top: "5%",
-              left: "40%",
+              top: "2%",
+              left: "35%",
               transform: `translate(50%, 5%)`,
               // display: "inline-block",
               position: "absolute",
@@ -278,7 +326,11 @@ const Home = (props) => {
                                   {/* <td></td> */}
                                   <th
                                     colSpan="2"
-                                    style={{ textAlign: "center" }}>
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
                                     ANOA
                                   </th>
                                 </tr>
@@ -289,8 +341,20 @@ const Home = (props) => {
                                   {...row.getRowProps()}
                                   //data-href="#"
                                   onClick={() => console.log("test")}>
-                                  <th>{column.render("Header")}</th>
-                                  <td>{cell.render("Cell")} BBTU/D</td>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {cell.render("Cell")} BBTU/D
+                                  </td>
                                 </tr>
                               );
                             } else if (column.render("Header") === "ENERGY") {
@@ -299,8 +363,20 @@ const Home = (props) => {
                                   {...row.getRowProps()}
                                   //data-href="#"
                                   onClick={() => console.log("test")}>
-                                  <th>{column.render("Header")}</th>
-                                  <td>{cell.render("Cell")} MMSCFD</td>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {cell.render("Cell")} MMSCFD
+                                  </td>
                                 </tr>
                               );
                             } else if (
@@ -311,8 +387,20 @@ const Home = (props) => {
                                   {...row.getRowProps()}
                                   //data-href="#"
                                   onClick={() => console.log("test")}>
-                                  <th>{column.render("Header")}</th>
-                                  <td>{cell.render("Cell")} Deg F</td>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {cell.render("Cell")} Deg F
+                                  </td>
                                 </tr>
                               );
                             } else {
@@ -321,8 +409,20 @@ const Home = (props) => {
                                   {...row.getRowProps()}
                                   //data-href="#"
                                   onClick={() => console.log("test")}>
-                                  <th>{column.render("Header")}</th>
-                                  <td>{cell.render("Cell")} Psig</td>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {cell.render("Cell")} Psig
+                                  </td>
                                 </tr>
                               );
                             }
@@ -344,7 +444,7 @@ const Home = (props) => {
               height: "10vh",
               fontSize: "10px",
               top: "2%",
-              left: "75%",
+              left: "70%",
               transform: `translate(75%, 2%)`,
               // width: "8vw",
               // height: "10vh",
@@ -369,7 +469,13 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
                               {/* <td></td> */}
-                              <th colSpan="2" style={{ textAlign: "center" }}>
+                              <th
+                                colSpan="2"
+                                style={{
+                                  textAlign: "center",
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
                                 PELIKAN
                               </th>
                             </tr>
@@ -380,8 +486,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} BBTU/D</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} BBTU/D
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "ENERGY") {
@@ -390,8 +508,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} MMSCFD</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} MMSCFD
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "TEMPERATURE") {
@@ -400,8 +530,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Deg F</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Deg F
+                              </td>
                             </tr>
                           );
                         } else {
@@ -410,8 +552,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Psig</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Psig
+                              </td>
                             </tr>
                           );
                         }
@@ -432,7 +586,7 @@ const Home = (props) => {
               height: "10vh",
               fontSize: "10px",
               top: "25%",
-              left: "75%",
+              left: "70%",
               transform: `translate(75%, 2%)`,
               // width: "8vw",
               // height: "10vh",
@@ -456,8 +610,13 @@ const Home = (props) => {
                             <tr
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
-                              {/* <td></td> */}
-                              <th colSpan="2" style={{ textAlign: "center" }}>
+                              <th
+                                colSpan="2"
+                                style={{
+                                  textAlign: "center",
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
                                 GAJAH BARU
                               </th>
                             </tr>
@@ -468,8 +627,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} BBTU/D</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} BBTU/D
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "ENERGY") {
@@ -478,8 +649,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} MMSCFD</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} MMSCFD
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "TEMPERATURE") {
@@ -488,8 +671,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Deg F</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Deg F
+                              </td>
                             </tr>
                           );
                         } else {
@@ -498,8 +693,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Psig</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Psig
+                              </td>
                             </tr>
                           );
                         }
@@ -519,8 +726,8 @@ const Home = (props) => {
               width: "10vw",
               height: "10vh",
               fontSize: "10px",
-              top: "40%",
-              left: "55%",
+              top: "42%",
+              left: "60%",
               transform: `translate(75%, 2%)`,
               // width: "8vw",
               // height: "10vh",
@@ -544,8 +751,13 @@ const Home = (props) => {
                             <tr
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
-                              {/* <td></td> */}
-                              <th colSpan="2" style={{ textAlign: "center" }}>
+                              <th
+                                colSpan="2"
+                                style={{
+                                  textAlign: "center",
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
                                 KAKAP
                               </th>
                             </tr>
@@ -556,8 +768,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} BBTU/D</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} BBTU/D
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "ENERGY") {
@@ -566,8 +790,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} MMSCFD</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} MMSCFD
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "TEMPERATURE") {
@@ -576,8 +812,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Deg F</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Deg F
+                              </td>
                             </tr>
                           );
                         } else {
@@ -586,8 +834,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Psig</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Psig
+                              </td>
                             </tr>
                           );
                         }
@@ -607,7 +867,7 @@ const Home = (props) => {
               width: "10vw",
               height: "10vh",
               fontSize: "10px",
-              top: "50%",
+              top: "65%",
               left: "2%",
               transform: `translate(2%, 50%)`,
               // width: "8vw",
@@ -632,8 +892,13 @@ const Home = (props) => {
                             <tr
                               {...row.getRowProps()}
                               onClick={() => console.log(row.original)}>
-                              {/* <td></td> */}
-                              <th colSpan="2" style={{ textAlign: "center" }}>
+                              <th
+                                colSpan="2"
+                                style={{
+                                  textAlign: "center",
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
                                 ORF
                               </th>
                             </tr>
@@ -645,8 +910,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} BBTU/D</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} BBTU/D
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "ENERGY") {
@@ -655,8 +932,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} MMSCFD</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} MMSCFD
+                              </td>
                             </tr>
                           );
                         } else if (column.render("Header") === "TEMPERATURE") {
@@ -665,8 +954,20 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Deg F</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Deg F
+                              </td>
                             </tr>
                           );
                         } else {
@@ -675,13 +976,1039 @@ const Home = (props) => {
                               {...row.getRowProps()}
                               //data-href="#"
                               onClick={() => console.log("test")}>
-                              <th>{column.render("Header")}</th>
-                              <td>{cell.render("Cell")} Psig</td>
+                              <th
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {column.render("Header")}
+                              </th>
+                              <td
+                                style={{
+                                  paddingTop: "2px",
+                                  paddingBottom: "2px",
+                                }}>
+                                {cell.render("Cell")} Psig
+                              </td>
                             </tr>
                           );
                         }
                       }
                     });
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10vw",
+              height: "10vh",
+              fontSize: "10px",
+              top: "15%",
+              left: "37%",
+              transform: `translate(50%, 5%)`,
+              // display: "inline-block",
+              position: "absolute",
+              //zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 0) {
+                    prepareRow(row);
+                    return (
+                      row.cells
+                        // .filter((rows2) => rows2.ASSET_ID == 1)
+                        .map((cell, i) => {
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    ANOA-GBTI
+                                  </th>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                  </td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                  </td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                  </td>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Psig
+                                  </td>
+                                </tr>
+                              );
+                            }
+                          }
+                        })
+                    );
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10vw",
+              height: "10vh",
+              fontSize: "10px",
+              top: "28%",
+              left: "37%",
+              transform: `translate(50%, 5%)`,
+              // display: "inline-block",
+              position: "absolute",
+              //zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 0) {
+                    prepareRow(row);
+                    return (
+                      row.cells
+                        // .filter((rows2) => rows2.ASSET_ID == 1)
+                        .map((cell, i) => {
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    GBTI-SSTI_N
+                                  </th>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                  </td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                  </td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                  </td>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Psig
+                                  </td>
+                                </tr>
+                              );
+                            }
+                          }
+                        })
+                    );
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10vw",
+              height: "10vh",
+              fontSize: "10px",
+              top: "55%",
+              left: "46%",
+              transform: `translate(50%, 5%)`,
+              // display: "inline-block",
+              position: "absolute",
+              //zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 0) {
+                    prepareRow(row);
+                    return (
+                      row.cells
+                        // .filter((rows2) => rows2.ASSET_ID == 1)
+                        .map((cell, i) => {
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    SSTI_N-SSTI_S
+                                  </th>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                  </td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                  </td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                  </td>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Psig
+                                  </td>
+                                </tr>
+                              );
+                            }
+                          }
+                        })
+                    );
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10vw",
+              height: "10vh",
+              fontSize: "10px",
+              top: "80%",
+              left: "25%",
+              transform: `translate(50%, 5%)`,
+              // display: "inline-block",
+              position: "absolute",
+              //zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 0) {
+                    prepareRow(row);
+                    return (
+                      row.cells
+                        // .filter((rows2) => rows2.ASSET_ID == 1)
+                        .map((cell, i) => {
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    SSTI_S_ORF
+                                  </th>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                  </td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                  </td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                  </td>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {" "}
+                                    0 Psig
+                                    {/* {cell.render("Cell")} Psig */}
+                                  </td>
+                                </tr>
+                              );
+                            }
+                          }
+                        })
+                    );
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10vw",
+              height: "10vh",
+              fontSize: "10px",
+              top: "50%",
+              left: "25%",
+              transform: `translate(50%, 5%)`,
+              // display: "inline-block",
+              position: "absolute",
+              //zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 0) {
+                    prepareRow(row);
+                    return (
+                      row.cells
+                        // .filter((rows2) => rows2.ASSET_ID == 1)
+                        .map((cell, i) => {
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    HANG TUAH-SSTI_S
+                                  </th>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                  </td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                  </td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                  </td>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {" "}
+                                    0 Psig
+                                    {/* {cell.render("Cell")} Psig */}
+                                  </td>
+                                </tr>
+                              );
+                            }
+                          }
+                        })
+                    );
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10vw",
+              height: "10vh",
+              fontSize: "10px",
+              top: "2%",
+              left: "54%",
+              transform: `translate(50%, 5%)`,
+              // display: "inline-block",
+              position: "absolute",
+              //zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 0) {
+                    prepareRow(row);
+                    return (
+                      row.cells
+                        // .filter((rows2) => rows2.ASSET_ID == 1)
+                        .map((cell, i) => {
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    GB-GBTI
+                                  </th>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                  </td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                  </td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                  </td>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {" "}
+                                    0 Psig
+                                    {/* {cell.render("Cell")} Psig */}
+                                  </td>
+                                </tr>
+                              );
+                            }
+                          }
+                        })
+                    );
+                  }
+                })
+              )
+            )}
+          </tbody>
+        </table>
+
+        <table
+          className="table table-striped  table-dark"
+          {...getTableProps({
+            style: {
+              width: "10vw",
+              height: "10vh",
+              fontSize: "10px",
+              top: "40%",
+              left: "50%",
+              transform: `translate(50%, 5%)`,
+              // display: "inline-block",
+              position: "absolute",
+              //zIndex: "0",
+            },
+          })}>
+          <tbody {...getTableBodyProps()}>
+            {headerGroups.map((headerGroup) =>
+              headerGroup.headers.map((column, a) =>
+                rows.map((row, b) => {
+                  if (b === 0) {
+                    prepareRow(row);
+                    return (
+                      row.cells
+                        // .filter((rows2) => rows2.ASSET_ID == 1)
+                        .map((cell, i) => {
+                          if (a === i) {
+                            if (column.render("Header") === "ASSET ID") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  onClick={() => console.log(row.original)}>
+                                  {/* <td></td> */}
+                                  <th
+                                    colSpan="2"
+                                    style={{
+                                      textAlign: "center",
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    KAKAP-SSTI_N
+                                  </th>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "VOLUME") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                  </td>
+                                </tr>
+                              );
+                            } else if (column.render("Header") === "ENERGY") {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                  </td>
+                                </tr>
+                              );
+                            } else if (
+                              column.render("Header") === "TEMPERATURE"
+                            ) {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                  </td>
+                                </tr>
+                              );
+                            } else {
+                              return (
+                                <tr
+                                  {...row.getRowProps()}
+                                  //data-href="#"
+                                  onClick={() => console.log("test")}>
+                                  <th
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {column.render("Header")}
+                                  </th>
+                                  <td
+                                    style={{
+                                      paddingTop: "2px",
+                                      paddingBottom: "2px",
+                                    }}>
+                                    {/* {cell.render("Cell")}  */}0 Psig
+                                  </td>
+                                </tr>
+                              );
+                            }
+                          }
+                        })
+                    );
                   }
                 })
               )

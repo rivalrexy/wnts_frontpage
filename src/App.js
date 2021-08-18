@@ -11,6 +11,7 @@ import { DatePicker, Space, TimePicker, Button } from "antd";
 import moment from "moment";
 
 import Home from "./components/Home";
+import Performance from "./components/Performance";
 import Header from "./components/Header";
 // import Menu from './components/Menu';
 import Menu from "./components/Mainmenu";
@@ -198,8 +199,6 @@ const App = () => {
               <i className="fas fa-search" />
             </a>
             <div className="navbar-search-block">
-              {/* <Home start={startDate} end={endDate} /> */}
-              {/* <App start={startDate} end={endDate} /> */}
               <form className="form-inline">
                 <div className="input-group input-group-sm">
                   <input
@@ -371,6 +370,17 @@ const App = () => {
                   path={["/", "/home"]}
                   render={() => (
                     <Home start={startDate} end={endDate} isAuthed={true} />
+                  )}
+                />
+                <Route
+                  exact
+                  path={["/performance"]}
+                  render={() => (
+                    <Performance
+                      start={startDate}
+                      end={endDate}
+                      isAuthed={true}
+                    />
                   )}
                 />
                 {/* <Route path="/home/:id" component={Home} /> */}

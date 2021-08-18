@@ -1,7 +1,7 @@
 import http from "../http-common";
 
 const getAll = (startDate, endDate) => {
-  return http.get(`/GasCoOp/last/${startDate}/${endDate}`);
+  return http.get(`/GasCoOp/all/${startDate}/${endDate}`);
 };
 
 const get = (id, startDate, endDate) => {
