@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import GasComponentDataService from "../services/GasComponentService";
-import GasOperationDataService from "../services/GasOperationService";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 import GasCoOpDataService from "../services/GasCoOp";
-import { Link } from "react-router-dom";
 import * as d3 from "d3";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const Performance = (props) => {
-  const [performance, setHome] = useState([]);
   const [performanceDate, setPerformanceDate] = useState([]);
 
   useEffect(() => {

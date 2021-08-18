@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import WntsDataService from "../services/GasComponentService";
 import { Link } from "react-router-dom";

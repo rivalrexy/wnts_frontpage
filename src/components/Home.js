@@ -1,20 +1,15 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import GasComponentDataService from "../services/GasComponentService";
-import GasOperationDataService from "../services/GasOperationService";
+/* eslint-disable array-callback-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect, useMemo } from "react";
 import GasCoOpDataService from "../services/GasCoOp";
-import { Link } from "react-router-dom";
-import { useTable, useFilters } from "react-table";
-import { DateRangePicker } from "rsuite";
+import { useTable } from "react-table";
 import "rsuite/dist/styles/rsuite-default.css";
 import "antd/dist/antd.css";
-import { DatePicker, Space } from "antd";
-import moment from "moment";
 import { COLUMNS } from "./columns";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const Home = (props) => {
-  const [home, setHome] = useState([]);
   const [homeDate, setHomeDate] = useState([]);
   const columns = useMemo(() => COLUMNS, []);
 
@@ -30,19 +25,19 @@ const Home = (props) => {
     }
   }, [props.start, props.end]);
 
-  const uppercaseKeys = (jsonVal) => {
-    for (var i = 0; i < jsonVal.length; i++) {
-      var a = jsonVal[i];
-      for (var key in a) {
-        if (a.hasOwnProperty(key)) {
-          a[key.toUpperCase()] = a[key];
-          delete a[key];
-        }
-      }
-      jsonVal[i] = a;
-    }
-    return jsonVal;
-  };
+  // const uppercaseKeys = (jsonVal) => {
+  //   for (var i = 0; i < jsonVal.length; i++) {
+  //     var a = jsonVal[i];
+  //     for (var key in a) {
+  //       if (a.hasOwnProperty(key)) {
+  //         a[key.toUpperCase()] = a[key];
+  //         delete a[key];
+  //       }
+  //     }
+  //     jsonVal[i] = a;
+  //   }
+  //   return jsonVal;
+  // };
 
   const convertDate = (dates) => {
     let date_ob = new Date(dates);
@@ -150,7 +145,7 @@ const Home = (props) => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          height: "90vh",
+          height: "95vh",
           // height: "850px",
           //height: "100%",
           //maxWidth: "100%",
@@ -443,7 +438,7 @@ const Home = (props) => {
               width: "10vw",
               height: "10vh",
               fontSize: "10px",
-              top: "2%",
+              top: "25%",
               left: "70%",
               transform: `translate(75%, 2%)`,
               // width: "8vw",
@@ -585,9 +580,10 @@ const Home = (props) => {
               width: "10vw",
               height: "10vh",
               fontSize: "10px",
-              top: "25%",
+              top: "2%",
               left: "70%",
               transform: `translate(75%, 2%)`,
+
               // width: "8vw",
               // height: "10vh",
               // fontSize: "10px",
@@ -1041,7 +1037,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    ANOA-GBTI
+                                    GBTI
                                   </th>
                                 </tr>
                               );
@@ -1185,7 +1181,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    GBTI-SSTI_N
+                                    SSTI-N
                                   </th>
                                 </tr>
                               );
@@ -1329,7 +1325,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    SSTI_N-SSTI_S
+                                    SSTI-S
                                   </th>
                                 </tr>
                               );
@@ -1420,298 +1416,6 @@ const Home = (props) => {
                                       paddingBottom: "2px",
                                     }}>
                                     {/* {cell.render("Cell")}  */}0 Psig
-                                  </td>
-                                </tr>
-                              );
-                            }
-                          }
-                        })
-                    );
-                  }
-                })
-              )
-            )}
-          </tbody>
-        </table>
-
-        <table
-          className="table table-striped  table-dark"
-          {...getTableProps({
-            style: {
-              width: "10vw",
-              height: "10vh",
-              fontSize: "10px",
-              top: "80%",
-              left: "25%",
-              transform: `translate(50%, 5%)`,
-              // display: "inline-block",
-              position: "absolute",
-              //zIndex: "0",
-            },
-          })}>
-          <tbody {...getTableBodyProps()}>
-            {headerGroups.map((headerGroup) =>
-              headerGroup.headers.map((column, a) =>
-                rows.map((row, b) => {
-                  if (b === 0) {
-                    prepareRow(row);
-                    return (
-                      row.cells
-                        // .filter((rows2) => rows2.ASSET_ID == 1)
-                        .map((cell, i) => {
-                          if (a === i) {
-                            if (column.render("Header") === "ASSET ID") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  onClick={() => console.log(row.original)}>
-                                  {/* <td></td> */}
-                                  <th
-                                    colSpan="2"
-                                    style={{
-                                      textAlign: "center",
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    SSTI_S_ORF
-                                  </th>
-                                </tr>
-                              );
-                            } else if (column.render("Header") === "VOLUME") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 BBTU/D
-                                  </td>
-                                </tr>
-                              );
-                            } else if (column.render("Header") === "ENERGY") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 MMSCFD
-                                  </td>
-                                </tr>
-                              );
-                            } else if (
-                              column.render("Header") === "TEMPERATURE"
-                            ) {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 Deg F
-                                  </td>
-                                </tr>
-                              );
-                            } else {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {" "}
-                                    0 Psig
-                                    {/* {cell.render("Cell")} Psig */}
-                                  </td>
-                                </tr>
-                              );
-                            }
-                          }
-                        })
-                    );
-                  }
-                })
-              )
-            )}
-          </tbody>
-        </table>
-
-        <table
-          className="table table-striped  table-dark"
-          {...getTableProps({
-            style: {
-              width: "10vw",
-              height: "10vh",
-              fontSize: "10px",
-              top: "50%",
-              left: "25%",
-              transform: `translate(50%, 5%)`,
-              // display: "inline-block",
-              position: "absolute",
-              //zIndex: "0",
-            },
-          })}>
-          <tbody {...getTableBodyProps()}>
-            {headerGroups.map((headerGroup) =>
-              headerGroup.headers.map((column, a) =>
-                rows.map((row, b) => {
-                  if (b === 0) {
-                    prepareRow(row);
-                    return (
-                      row.cells
-                        // .filter((rows2) => rows2.ASSET_ID == 1)
-                        .map((cell, i) => {
-                          if (a === i) {
-                            if (column.render("Header") === "ASSET ID") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  onClick={() => console.log(row.original)}>
-                                  {/* <td></td> */}
-                                  <th
-                                    colSpan="2"
-                                    style={{
-                                      textAlign: "center",
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    HANG TUAH-SSTI_S
-                                  </th>
-                                </tr>
-                              );
-                            } else if (column.render("Header") === "VOLUME") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 BBTU/D
-                                  </td>
-                                </tr>
-                              );
-                            } else if (column.render("Header") === "ENERGY") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 MMSCFD
-                                  </td>
-                                </tr>
-                              );
-                            } else if (
-                              column.render("Header") === "TEMPERATURE"
-                            ) {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 Deg F
-                                  </td>
-                                </tr>
-                              );
-                            } else {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {" "}
-                                    0 Psig
-                                    {/* {cell.render("Cell")} Psig */}
                                   </td>
                                 </tr>
                               );
@@ -1765,7 +1469,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    GB-GBTI
+                                    PTI
                                   </th>
                                 </tr>
                               );
@@ -1858,150 +1562,6 @@ const Home = (props) => {
                                     {" "}
                                     0 Psig
                                     {/* {cell.render("Cell")} Psig */}
-                                  </td>
-                                </tr>
-                              );
-                            }
-                          }
-                        })
-                    );
-                  }
-                })
-              )
-            )}
-          </tbody>
-        </table>
-
-        <table
-          className="table table-striped  table-dark"
-          {...getTableProps({
-            style: {
-              width: "10vw",
-              height: "10vh",
-              fontSize: "10px",
-              top: "40%",
-              left: "50%",
-              transform: `translate(50%, 5%)`,
-              // display: "inline-block",
-              position: "absolute",
-              //zIndex: "0",
-            },
-          })}>
-          <tbody {...getTableBodyProps()}>
-            {headerGroups.map((headerGroup) =>
-              headerGroup.headers.map((column, a) =>
-                rows.map((row, b) => {
-                  if (b === 0) {
-                    prepareRow(row);
-                    return (
-                      row.cells
-                        // .filter((rows2) => rows2.ASSET_ID == 1)
-                        .map((cell, i) => {
-                          if (a === i) {
-                            if (column.render("Header") === "ASSET ID") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  onClick={() => console.log(row.original)}>
-                                  {/* <td></td> */}
-                                  <th
-                                    colSpan="2"
-                                    style={{
-                                      textAlign: "center",
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    KAKAP-SSTI_N
-                                  </th>
-                                </tr>
-                              );
-                            } else if (column.render("Header") === "VOLUME") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 BBTU/D
-                                  </td>
-                                </tr>
-                              );
-                            } else if (column.render("Header") === "ENERGY") {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 MMSCFD
-                                  </td>
-                                </tr>
-                              );
-                            } else if (
-                              column.render("Header") === "TEMPERATURE"
-                            ) {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 Deg F
-                                  </td>
-                                </tr>
-                              );
-                            } else {
-                              return (
-                                <tr
-                                  {...row.getRowProps()}
-                                  //data-href="#"
-                                  onClick={() => console.log("test")}>
-                                  <th
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {column.render("Header")}
-                                  </th>
-                                  <td
-                                    style={{
-                                      paddingTop: "2px",
-                                      paddingBottom: "2px",
-                                    }}>
-                                    {/* {cell.render("Cell")}  */}0 Psig
                                   </td>
                                 </tr>
                               );

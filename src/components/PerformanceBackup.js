@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useMemo, useRef } from "react";
-import GasComponentDataService from "../services/GasComponentService";
-import GasOperationDataService from "../services/GasOperationService";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState, useEffect } from "react";
 import GasCoOpDataService from "../services/GasCoOp";
-import { Link } from "react-router-dom";
 import * as d3 from "d3";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const Performance = (props) => {
-  const [performance, setHome] = useState([]);
   const [performanceDate, setPerformanceDate] = useState([]);
 
   useEffect(() => {
@@ -61,53 +58,53 @@ const Performance = (props) => {
   };
 
   const renderMultiChart = (datas) => {
-    var data = [
-      {
-        name: "USA",
-        values: [
-          { date: "2000", price: "100" },
-          { date: "2001", price: "110" },
-          { date: "2002", price: "145" },
-          { date: "2003", price: "241" },
-          { date: "2004", price: "101" },
-          { date: "2005", price: "90" },
-          { date: "2006", price: "10" },
-          { date: "2007", price: "35" },
-          { date: "2008", price: "21" },
-          { date: "2009", price: "201" },
-        ],
-      },
-      {
-        name: "Canada",
-        values: [
-          { date: "2000", price: "200" },
-          { date: "2001", price: "120" },
-          { date: "2002", price: "33" },
-          { date: "2003", price: "21" },
-          { date: "2004", price: "51" },
-          { date: "2005", price: "190" },
-          { date: "2006", price: "120" },
-          { date: "2007", price: "85" },
-          { date: "2008", price: "221" },
-          { date: "2009", price: "101" },
-        ],
-      },
-      {
-        name: "Maxico",
-        values: [
-          { date: "2000", price: "50" },
-          { date: "2001", price: "10" },
-          { date: "2002", price: "5" },
-          { date: "2003", price: "71" },
-          { date: "2004", price: "20" },
-          { date: "2005", price: "9" },
-          { date: "2006", price: "220" },
-          { date: "2007", price: "235" },
-          { date: "2008", price: "61" },
-          { date: "2009", price: "10" },
-        ],
-      },
-    ];
+    // var data = [
+    //   {
+    //     name: "USA",
+    //     values: [
+    //       { date: "2000", price: "100" },
+    //       { date: "2001", price: "110" },
+    //       { date: "2002", price: "145" },
+    //       { date: "2003", price: "241" },
+    //       { date: "2004", price: "101" },
+    //       { date: "2005", price: "90" },
+    //       { date: "2006", price: "10" },
+    //       { date: "2007", price: "35" },
+    //       { date: "2008", price: "21" },
+    //       { date: "2009", price: "201" },
+    //     ],
+    //   },
+    //   {
+    //     name: "Canada",
+    //     values: [
+    //       { date: "2000", price: "200" },
+    //       { date: "2001", price: "120" },
+    //       { date: "2002", price: "33" },
+    //       { date: "2003", price: "21" },
+    //       { date: "2004", price: "51" },
+    //       { date: "2005", price: "190" },
+    //       { date: "2006", price: "120" },
+    //       { date: "2007", price: "85" },
+    //       { date: "2008", price: "221" },
+    //       { date: "2009", price: "101" },
+    //     ],
+    //   },
+    //   {
+    //     name: "Maxico",
+    //     values: [
+    //       { date: "2000", price: "50" },
+    //       { date: "2001", price: "10" },
+    //       { date: "2002", price: "5" },
+    //       { date: "2003", price: "71" },
+    //       { date: "2004", price: "20" },
+    //       { date: "2005", price: "9" },
+    //       { date: "2006", price: "220" },
+    //       { date: "2007", price: "235" },
+    //       { date: "2008", price: "61" },
+    //       { date: "2009", price: "10" },
+    //     ],
+    //   },
+    // ];
 
     var width = 500;
     var height = 300;
