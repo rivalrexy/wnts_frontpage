@@ -12,16 +12,16 @@ const DataBrowser = (props) => {
   const columns = useMemo(() => COLUMNS, []);
 
   useEffect(() => {
-    getAll(convertDate(props.start), convertDate(props.end));
+    get(props.id, convertDate(props.start), convertDate(props.end));
     console.log("didMount");
   }, []);
 
   useEffect(() => {
     if (homeDate.length > 0) {
-      getAll(convertDate(props.start), convertDate(props.end));
+      get(props.id,convertDate(props.start), convertDate(props.end));
       console.log("didUpdate");
     }
-  }, [props.start, props.end]);
+  }, [props.id,props.start, props.end]);
 
   // const uppercaseKeys = (jsonVal) => {
   //   for (var i = 0; i < jsonVal.length; i++) {
@@ -71,9 +71,9 @@ const DataBrowser = (props) => {
   //       console.log(e);
   //     });
   // };
-
-  const getAll = (startDate, endDate) => {
-    GasCoOpDataService.getAll(startDate, endDate)
+  
+  const get = (id, startDate, endDate) => {
+    GasCoOpDataService.get(id, startDate, endDate)
       .then((response) => {
         //const newJSON = uppercaseKeys(response.data);
         //response.data.map((row) => {});
