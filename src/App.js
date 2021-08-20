@@ -20,7 +20,7 @@ const App = ({ children }) => {
   //const [startDate, setStartDate] = useState(new Date());
   //const [endDate, setEndDate] = useState(new Date());
   const [asset, setAsset] = useState([]);
-  const [ assetValue, setValue] = useState([]);
+  const [ assetValue, setValue] = useState(1);
   const [startDate, setStartDate] = useState(new Date("2019-09-10 00:00:00"));
   const [endDate, setEndDate] = useState(new Date("2019-09-11 00:00:00"));
   const { RangePicker } = DatePicker;
@@ -240,14 +240,164 @@ const App = ({ children }) => {
           exact
           path={["/performance"]}
           render={() => (
-            <Performance start={startDate} end={endDate} isAuthed={true} />
+            <div>
+              <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <a
+                      className="nav-link"
+                      data-widget="pushmenu"
+                      href="#"
+                      role="button">
+                      <i className="fas fa-bars" />
+                    </a>
+                  </li>
+                  <li className="nav-item d-none d-sm-inline-block">
+                    <a href="/" className="nav-link">
+                      Home
+                    </a>
+                  </li>
+                </ul>
+                {/* Right navbar links */}
+                <ul className="navbar-nav ml-auto">
+                  {/* <Space direction="vertical" size={12}> */}
+                  {/* <TimePicker needsConfirmation={true} /> */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transform: "translate(-10%, 0%)",
+                    }}>
+                    {/* <select>
+                      {asset.map((option) => (
+                        <option value={option.ASSET_ID}>
+                          {option.ASSET_ID}
+                        </option>
+                      ))}
+                    </select> */}
+                    <Button onClick={onClickPrev} type="primary" shape="circle">
+                      {"<"}
+                    </Button>
+                  </div>
+
+                  <RangePicker
+                    //defaultValue={dateRange}
+                    value={dateRange}
+                    showTime={{ format: "HH:00" }}
+                    format="YYYY-MM-DD HH:00"
+                    //needsConfirmation={false}
+                    onChange={onChange}
+                    //disabledMinutes={() => [...range(1, 59)]}
+                    onOk={onOk}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transform: "translate(10%, 0%)",
+                    }}>
+                    <Button onClick={onClickNext} type="primary" shape="circle">
+                      {">"}
+                    </Button>
+                  </div>
+                </ul>
+              </nav>
+              <Menu />
+              <div className="content-wrapper">
+                <div className="content">
+                  <div className="card">
+                    <div className="card-body">
+                      <Performance start={startDate} end={endDate} isAuthed={true} />
+                      <div className="d-flex flex-row justify-content-end"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
         />
         <Route
           exact
           path={["/report"]}
           render={() => (
-            <Report start={startDate} end={endDate} isAuthed={true} />
+            <div>
+              <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <a
+                      className="nav-link"
+                      data-widget="pushmenu"
+                      href="#"
+                      role="button">
+                      <i className="fas fa-bars" />
+                    </a>
+                  </li>
+                  <li className="nav-item d-none d-sm-inline-block">
+                    <a href="/" className="nav-link">
+                      Home
+                    </a>
+                  </li>
+                </ul>
+                {/* Right navbar links */}
+                <ul className="navbar-nav ml-auto">
+                  {/* <Space direction="vertical" size={12}> */}
+                  {/* <TimePicker needsConfirmation={true} /> */}
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transform: "translate(-10%, 0%)",
+                    }}>
+                    {/* <select>
+                      {asset.map((option) => (
+                        <option value={option.ASSET_ID}>
+                          {option.ASSET_ID}
+                        </option>
+                      ))}
+                    </select> */}
+                    <Button onClick={onClickPrev} type="primary" shape="circle">
+                      {"<"}
+                    </Button>
+                  </div>
+
+                  <RangePicker
+                    //defaultValue={dateRange}
+                    value={dateRange}
+                    showTime={{ format: "HH:00" }}
+                    format="YYYY-MM-DD HH:00"
+                    //needsConfirmation={false}
+                    onChange={onChange}
+                    //disabledMinutes={() => [...range(1, 59)]}
+                    onOk={onOk}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transform: "translate(10%, 0%)",
+                    }}>
+                    <Button onClick={onClickNext} type="primary" shape="circle">
+                      {">"}
+                    </Button>
+                  </div>
+                </ul>
+              </nav>
+              <Menu />
+              <div className="content-wrapper">
+                <div className="content">
+                  <div className="card">
+                    <div className="card-body">
+                      <Report start={startDate} end={endDate} isAuthed={true} />
+                      <div className="d-flex flex-row justify-content-end"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
         />
         <Route
