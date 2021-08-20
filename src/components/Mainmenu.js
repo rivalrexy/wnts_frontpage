@@ -84,6 +84,12 @@ export default class Mainmenu extends Component {
                       <p>Report</p>
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a href="/databrowser" className="nav-link active">
+                      <i className="far fa-circle nav-icon" />
+                      <p>Data Browser</p>
+                    </a>
+                  </li>
                 </ul>
               </li>
             </ul>

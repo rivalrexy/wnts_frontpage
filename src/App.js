@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import "react-datepicker/dist/react-datepicker.css";
 import "rsuite/dist/styles/rsuite-default.css";
 import "antd/dist/antd.css";
 import { DatePicker, Button } from "antd";
@@ -12,6 +11,7 @@ import moment from "moment";
 import Home from "./components/Home";
 import Performance from "./components/Performance";
 import Menu from "./components/Mainmenu";
+import DataBrowser from "./components/DataBrowser";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -169,6 +169,17 @@ const App = () => {
                   path={["/performance"]}
                   render={() => (
                     <Performance
+                      start={startDate}
+                      end={endDate}
+                      isAuthed={true}
+                    />
+                  )}
+                />
+                <Route
+                  exact
+                  path={["/databrowser"]}
+                  render={() => (
+                    <DataBrowser
                       start={startDate}
                       end={endDate}
                       isAuthed={true}
