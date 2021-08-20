@@ -3,7 +3,7 @@ import GasCoOpDataService from "../services/GasCoOp";
 import { useTable, useSortBy, usePagination,useGlobalFilter} from "react-table";
 import "rsuite/dist/styles/rsuite-default.css";
 import "antd/dist/antd.css";
-import { COLUMNS } from "./columns";
+import { COLUMNS } from "./columnsdatabrowser";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -181,7 +181,7 @@ const DataBrowser = (props) => {
                 ))}
               </thead>
                   <tbody {...getTableBodyProps()}>
-                {rows.map(row => {
+                {rows.map((row, i) => {
                   prepareRow(row)
                   return (
                     <tr {...row.getRowProps()}>
@@ -194,7 +194,7 @@ const DataBrowser = (props) => {
                               border: 'solid 1px gray',
                             }}
                           >
-                            {cell.render('Cell')}
+                            <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                           </td>
                         )
                       })}
