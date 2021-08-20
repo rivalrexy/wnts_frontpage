@@ -1,16 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useState, useEffect } from "react";
 import GasCoOpDataService from "../services/GasCoOp";
 import * as d3 from "d3";
-
+import "../index.css";
 import "react-datepicker/dist/react-datepicker.css";
+
 
 const Performance = (props) => {
   const [performanceDate, setPerformanceDate] = useState([]);
 
   useEffect(() => {
     getDate("1", convertDate(props.start), convertDate(props.end));
-    console.log(performanceDate);
+
   }, []);
 
   useEffect(() => {
@@ -55,13 +57,70 @@ const Performance = (props) => {
         renderMultiChartEnergy(newJSON);
         renderMultiChartTemperature(newJSON);
         renderMultiChartPressure(newJSON);
-        console.log(newJSON);
+        // console.log(newJSON);
       })
       .catch((e) => {
         console.log(e);
       });
   };
 
+  // function tick (data) 
+  // {
+  //   let totalTick = Math.ceil(data[0].values.length)
+  //   let total = 0;
+  //   if(totalTick < 10)
+  //   {
+  //     total = 3;
+  //     return total 
+  //   }
+  //   if(totalTick >= 10 && totalTick < 100)
+  //   {
+  //     total = 5;
+  //     return total 
+  //   }
+  //   if(totalTick >= 100)
+  //   {
+  //     total = 8;
+  //     return total 
+  //   }
+      
+  // }
+
+  // function yDomainMax (data) 
+  // {
+  //   let totalTick = Math.ceil(data[0].values.length * 0.25)
+    
+  //     return totalTick
+  
+  // }
+
+  // definition var for line chart
+
+  var width = 600;
+  var height = 300;
+  var margin = 50;
+  var marginBotDomain = 0.8;
+  var marginTopDomain = 1.2;
+  var botDomain = 10;
+  var duration = 250;
+  var tickSizeInner = 5;
+  var xGridSize = -height + margin;
+  var yGridSize = width - margin;
+  var lineOpacity = "0.90";
+  var lineOpacityHover = "1";
+  var otherLinesOpacityHover = "1";
+  var lineStroke = "3px";
+  var lineStrokeHover = "5px";
+  var circleOpacity = "0.85";
+  var circleOpacityOnLineHover = "0.25";
+  var circleRadius = 3;
+  var circleRadiusHover = 6;
+  var rotateXLabel = 0;
+  var X_posXLeg = 35;
+  var X_posYLeg = 10;
+  var Y_posXLab = -90;
+  var Y_posYLab = -40;
+//////////////////////////////////////////////////////// VOLUME /////////////////////////////////////////////////////////////////////////////////////////
   const renderMultiChartVolume = (datas) => {
     //d3.selectAll("div div svg").remove();
 
@@ -74,100 +133,27 @@ const Performance = (props) => {
     var data = Object.keys(group_to_values).map(function (key) {
       return { name: key, values: group_to_values[key] };
     });
-    //console.log(data);
-    // var data = [
-    //   {
-    //     name: "USA",
-    //     values: [
-    //       { date: "2000", price: "100" },
-    //       { date: "2001", price: "110" },
-    //       { date: "2002", price: "145" },
-    //       { date: "2003", price: "241" },
-    //       { date: "2004", price: "101" },
-    //       { date: "2005", price: "90" },
-    //       { date: "2006", price: "10" },
-    //       { date: "2007", price: "35" },
-    //       { date: "2008", price: "21" },
-    //       { date: "2009", price: "201" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Canada",
-    //     values: [
-    //       { date: "2000", price: "200" },
-    //       { date: "2001", price: "120" },
-    //       { date: "2002", price: "33" },
-    //       { date: "2003", price: "21" },
-    //       { date: "2004", price: "51" },
-    //       { date: "2005", price: "190" },
-    //       { date: "2006", price: "120" },
-    //       { date: "2007", price: "85" },
-    //       { date: "2008", price: "221" },
-    //       { date: "2009", price: "101" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Maxico",
-    //     values: [
-    //       { date: "2000", price: "50" },
-    //       { date: "2001", price: "10" },
-    //       { date: "2002", price: "5" },
-    //       { date: "2003", price: "71" },
-    //       { date: "2004", price: "20" },
-    //       { date: "2005", price: "9" },
-    //       { date: "2006", price: "220" },
-    //       { date: "2007", price: "235" },
-    //       { date: "2008", price: "61" },
-    //       { date: "2009", price: "10" },
-    //     ],
-    //   },
-    // ];
-
-    var width = 600;
-    var height = 300;
-    var margin = 50;
-    var duration = 250;
-
-    // var lineOpacity = "0.25";
-    // var lineOpacityHover = "0.85";
-    // var otherLinesOpacityHover = "0.1";
-    // var lineStroke = "1.5px";
-    // var lineStrokeHover = "2.5px";
-
-    var lineOpacity = "0.90";
-    var lineOpacityHover = "1";
-    var otherLinesOpacityHover = "1";
-    var lineStroke = "5px";
-    var lineStrokeHover = "8px";
-
-    var circleOpacity = "0.85";
-    var circleOpacityOnLineHover = "0.25";
-    var circleRadius = 1;
-    var circleRadiusHover = 6;
+   
 
     /* Format Data */
-    //var parseDate = d3.timeParse("%YYYY-%MM-%DD %hh:%mm:%ss");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H:%M:%S");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H");
     data.forEach(function (d) {
       d.values.forEach(function (d) {
-        //d.DATE_STAMP = parseDate(new Date(d.DATE_STAMP));
         d.DATE_STAMP = new Date(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
         d.VOLUME_RATE = +d.VOLUME_RATE;
       });
     });
+    
+    // var total_tick = tick(data);
 
     /* Scale */
     var xScale = d3
       .scaleTime()
       .domain(d3.extent(data[0].values, (d) => d.DATE_STAMP))
-      .range([0, width - margin]);
-
+      .range([0, width - margin])
+      
     var yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(data[0].values, (d) => d.VOLUME_RATE)])
+      .domain([d3.min(data[0].values, (d) => d.VOLUME_RATE) * marginBotDomain - botDomain, d3.max(data[0].values, (d) => d.VOLUME_RATE) * marginTopDomain])
       .range([height - margin, 0]);
 
     var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -185,8 +171,8 @@ const Performance = (props) => {
     var line = d3
       .line()
       .x((d) => xScale(d.DATE_STAMP))
-      .y((d) => yScale(d.VOLUME_RATE));
-
+      .y((d) => yScale(d.VOLUME_RATE))
+      .curve(d3.curveMonotoneX);
     let lines = svg.append("g").attr("class", "lines");
 
     lines
@@ -195,7 +181,7 @@ const Performance = (props) => {
       .enter()
       .append("g")
       .attr("fill", "none")
-      .attr("stroke-width", 4)
+      .attr("stroke-width", lineStroke)
       .attr("class", "line-group")
       .on("mouseover", function (d, i) {
         svg
@@ -276,34 +262,55 @@ const Performance = (props) => {
       });
 
     /* Add Axis into SVG */
-    var xAxis = d3.axisBottom(xScale).ticks(5);
-    var yAxis = d3.axisLeft(yScale).ticks(5);
-
+    var xAxis = d3.axisBottom(xScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0).tickFormat(d3.timeFormat("%d %b %H:%M"));
+    var yAxis = d3.axisLeft(yScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0) ;
+    
+    
     svg
       .append("g")
-      .attr("class", "x axis")
+      .attr("class", "x_axis")
       .attr("transform", `translate(0, ${height - margin})`)
       .call(xAxis)
-      //.outerTickSize(0)
-      //.ticks(10)
       .selectAll("text")
       .style("text-anchor", "end")
       .attr("dx", "-.8em")
       .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");
+      .attr("transform", `translate(${X_posXLeg}, ${X_posYLeg}) rotate(${rotateXLabel})`);
+      
+    // d3.selectAll("g.x_axis g.tick text").node().remove();
+    // d3.selectAll("g.x_axis g.tick line").node().remove();
 
+    d3.selectAll("g.x_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", xGridSize)
+      .attr("x2", 0)
+      .attr("y2", 0)
+      .filter(function (d) { return d === 0;  }).remove();
+    
+    
     svg
       .append("g")
-      .attr("class", "y axis")
+      .attr("class", "y_axis")
       .call(yAxis)
       .append("text")
-      .attr("y", -30)
-      .attr("x", -90)
+      .attr("y", Y_posYLab)
+      .attr("x", Y_posXLab)
       .attr("transform", "rotate(-90)")
       .attr("fill", "#000")
       .text("Volume (BBTU/D)");
+    
+    d3.selectAll("g.y_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", 0)
+      .attr("x2", yGridSize)
+      .attr("y2", 0);
+      
   };
-
+//////////////////////////////////////////////////////// ENERGY /////////////////////////////////////////////////////////////////////////////////////////
   const renderMultiChartEnergy = (datas) => {
     //d3.selectAll("div div svg").remove();
 
@@ -316,100 +323,27 @@ const Performance = (props) => {
     var data = Object.keys(group_to_values).map(function (key) {
       return { name: key, values: group_to_values[key] };
     });
-    //console.log(data);
-    // var data = [
-    //   {
-    //     name: "USA",
-    //     values: [
-    //       { date: "2000", price: "100" },
-    //       { date: "2001", price: "110" },
-    //       { date: "2002", price: "145" },
-    //       { date: "2003", price: "241" },
-    //       { date: "2004", price: "101" },
-    //       { date: "2005", price: "90" },
-    //       { date: "2006", price: "10" },
-    //       { date: "2007", price: "35" },
-    //       { date: "2008", price: "21" },
-    //       { date: "2009", price: "201" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Canada",
-    //     values: [
-    //       { date: "2000", price: "200" },
-    //       { date: "2001", price: "120" },
-    //       { date: "2002", price: "33" },
-    //       { date: "2003", price: "21" },
-    //       { date: "2004", price: "51" },
-    //       { date: "2005", price: "190" },
-    //       { date: "2006", price: "120" },
-    //       { date: "2007", price: "85" },
-    //       { date: "2008", price: "221" },
-    //       { date: "2009", price: "101" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Maxico",
-    //     values: [
-    //       { date: "2000", price: "50" },
-    //       { date: "2001", price: "10" },
-    //       { date: "2002", price: "5" },
-    //       { date: "2003", price: "71" },
-    //       { date: "2004", price: "20" },
-    //       { date: "2005", price: "9" },
-    //       { date: "2006", price: "220" },
-    //       { date: "2007", price: "235" },
-    //       { date: "2008", price: "61" },
-    //       { date: "2009", price: "10" },
-    //     ],
-    //   },
-    // ];
-
-    var width = 600;
-    var height = 300;
-    var margin = 50;
-    var duration = 250;
-
-    // var lineOpacity = "0.25";
-    // var lineOpacityHover = "0.85";
-    // var otherLinesOpacityHover = "0.1";
-    // var lineStroke = "1.5px";
-    // var lineStrokeHover = "2.5px";
-
-    var lineOpacity = "0.90";
-    var lineOpacityHover = "1";
-    var otherLinesOpacityHover = "1";
-    var lineStroke = "5px";
-    var lineStrokeHover = "8px";
-
-    var circleOpacity = "0.85";
-    var circleOpacityOnLineHover = "0.25";
-    var circleRadius = 1;
-    var circleRadiusHover = 6;
+   
 
     /* Format Data */
-    //var parseDate = d3.timeParse("%YYYY-%MM-%DD %hh:%mm:%ss");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H:%M:%S");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H");
     data.forEach(function (d) {
       d.values.forEach(function (d) {
-        //d.DATE_STAMP = parseDate(new Date(d.DATE_STAMP));
         d.DATE_STAMP = new Date(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
         d.ENERGY_RATE = +d.ENERGY_RATE;
       });
     });
+    
+    // var total_tick = tick(data);
 
     /* Scale */
     var xScale = d3
       .scaleTime()
       .domain(d3.extent(data[0].values, (d) => d.DATE_STAMP))
-      .range([0, width - margin]);
-
+      .range([0, width - margin])
+      
     var yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(data[0].values, (d) => d.ENERGY_RATE)])
+      .domain([d3.min(data[0].values, (d) => d.ENERGY_RATE) * marginBotDomain - botDomain, d3.max(data[0].values, (d) => d.ENERGY_RATE) * marginTopDomain])
       .range([height - margin, 0]);
 
     var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -427,8 +361,8 @@ const Performance = (props) => {
     var line = d3
       .line()
       .x((d) => xScale(d.DATE_STAMP))
-      .y((d) => yScale(d.ENERGY_RATE));
-
+      .y((d) => yScale(d.ENERGY_RATE))
+      .curve(d3.curveMonotoneX);
     let lines = svg.append("g").attr("class", "lines");
 
     lines
@@ -437,7 +371,7 @@ const Performance = (props) => {
       .enter()
       .append("g")
       .attr("fill", "none")
-      .attr("stroke-width", 4)
+      .attr("stroke-width", lineStroke)
       .attr("class", "line-group")
       .on("mouseover", function (d, i) {
         svg
@@ -518,34 +452,55 @@ const Performance = (props) => {
       });
 
     /* Add Axis into SVG */
-    var xAxis = d3.axisBottom(xScale).ticks(5);
-    var yAxis = d3.axisLeft(yScale).ticks(5);
-
+    var xAxis = d3.axisBottom(xScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0).tickFormat(d3.timeFormat("%d %b %H:%M"));
+    var yAxis = d3.axisLeft(yScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0) ;
+    
+    
     svg
       .append("g")
-      .attr("class", "x axis")
+      .attr("class", "x_axis")
       .attr("transform", `translate(0, ${height - margin})`)
       .call(xAxis)
-      //.outerTickSize(0)
-      //.ticks(10)
       .selectAll("text")
       .style("text-anchor", "end")
       .attr("dx", "-.8em")
       .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");
+      .attr("transform", `translate(${X_posXLeg}, ${X_posYLeg}) rotate(${rotateXLabel})`);
+      
+    // d3.selectAll("g.x_axis g.tick text").node().remove();
+    // d3.selectAll("g.x_axis g.tick line").node().remove();
 
+    d3.selectAll("g.x_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", xGridSize)
+      .attr("x2", 0)
+      .attr("y2", 0)
+      .filter(function (d) { return d === 0;  }).remove();
+    
+    
     svg
       .append("g")
-      .attr("class", "y axis")
+      .attr("class", "y_axis")
       .call(yAxis)
       .append("text")
-      .attr("y", -30)
-      .attr("x", -90)
+      .attr("y", Y_posYLab)
+      .attr("x", Y_posXLab)
       .attr("transform", "rotate(-90)")
       .attr("fill", "#000")
       .text("Energy (MMSCFD)");
+    
+    d3.selectAll("g.y_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", 0)
+      .attr("x2", yGridSize)
+      .attr("y2", 0);
+      
   };
-
+//////////////////////////////////////////////////////// TEMPERATURE /////////////////////////////////////////////////////////////////////////////////////////
   const renderMultiChartTemperature = (datas) => {
     //d3.selectAll("div div svg").remove();
 
@@ -558,100 +513,27 @@ const Performance = (props) => {
     var data = Object.keys(group_to_values).map(function (key) {
       return { name: key, values: group_to_values[key] };
     });
-    //console.log(data);
-    // var data = [
-    //   {
-    //     name: "USA",
-    //     values: [
-    //       { date: "2000", price: "100" },
-    //       { date: "2001", price: "110" },
-    //       { date: "2002", price: "145" },
-    //       { date: "2003", price: "241" },
-    //       { date: "2004", price: "101" },
-    //       { date: "2005", price: "90" },
-    //       { date: "2006", price: "10" },
-    //       { date: "2007", price: "35" },
-    //       { date: "2008", price: "21" },
-    //       { date: "2009", price: "201" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Canada",
-    //     values: [
-    //       { date: "2000", price: "200" },
-    //       { date: "2001", price: "120" },
-    //       { date: "2002", price: "33" },
-    //       { date: "2003", price: "21" },
-    //       { date: "2004", price: "51" },
-    //       { date: "2005", price: "190" },
-    //       { date: "2006", price: "120" },
-    //       { date: "2007", price: "85" },
-    //       { date: "2008", price: "221" },
-    //       { date: "2009", price: "101" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Maxico",
-    //     values: [
-    //       { date: "2000", price: "50" },
-    //       { date: "2001", price: "10" },
-    //       { date: "2002", price: "5" },
-    //       { date: "2003", price: "71" },
-    //       { date: "2004", price: "20" },
-    //       { date: "2005", price: "9" },
-    //       { date: "2006", price: "220" },
-    //       { date: "2007", price: "235" },
-    //       { date: "2008", price: "61" },
-    //       { date: "2009", price: "10" },
-    //     ],
-    //   },
-    // ];
-
-    var width = 600;
-    var height = 300;
-    var margin = 50;
-    var duration = 250;
-
-    // var lineOpacity = "0.25";
-    // var lineOpacityHover = "0.85";
-    // var otherLinesOpacityHover = "0.1";
-    // var lineStroke = "1.5px";
-    // var lineStrokeHover = "2.5px";
-
-    var lineOpacity = "0.90";
-    var lineOpacityHover = "1";
-    var otherLinesOpacityHover = "1";
-    var lineStroke = "5px";
-    var lineStrokeHover = "8px";
-
-    var circleOpacity = "0.85";
-    var circleOpacityOnLineHover = "0.25";
-    var circleRadius = 1;
-    var circleRadiusHover = 6;
+   
 
     /* Format Data */
-    //var parseDate = d3.timeParse("%YYYY-%MM-%DD %hh:%mm:%ss");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H:%M:%S");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H");
     data.forEach(function (d) {
       d.values.forEach(function (d) {
-        //d.DATE_STAMP = parseDate(new Date(d.DATE_STAMP));
         d.DATE_STAMP = new Date(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
         d.TEMPERATURE = +d.TEMPERATURE;
       });
     });
+    
+    // var total_tick = tick(data);
 
     /* Scale */
     var xScale = d3
       .scaleTime()
       .domain(d3.extent(data[0].values, (d) => d.DATE_STAMP))
-      .range([0, width - margin]);
-
+      .range([0, width - margin])
+      
     var yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(data[0].values, (d) => d.TEMPERATURE)])
+      .domain([d3.min(data[0].values, (d) => d.TEMPERATURE) * marginBotDomain - botDomain, d3.max(data[0].values, (d) => d.TEMPERATURE) * marginTopDomain])
       .range([height - margin, 0]);
 
     var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -669,8 +551,8 @@ const Performance = (props) => {
     var line = d3
       .line()
       .x((d) => xScale(d.DATE_STAMP))
-      .y((d) => yScale(d.TEMPERATURE));
-
+      .y((d) => yScale(d.TEMPERATURE))
+      .curve(d3.curveMonotoneX);
     let lines = svg.append("g").attr("class", "lines");
 
     lines
@@ -679,7 +561,7 @@ const Performance = (props) => {
       .enter()
       .append("g")
       .attr("fill", "none")
-      .attr("stroke-width", 4)
+      .attr("stroke-width", lineStroke)
       .attr("class", "line-group")
       .on("mouseover", function (d, i) {
         svg
@@ -760,34 +642,55 @@ const Performance = (props) => {
       });
 
     /* Add Axis into SVG */
-    var xAxis = d3.axisBottom(xScale).ticks(5);
-    var yAxis = d3.axisLeft(yScale).ticks(5);
-
+    var xAxis = d3.axisBottom(xScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0).tickFormat(d3.timeFormat("%d %b %H:%M"));
+    var yAxis = d3.axisLeft(yScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0) ;
+    
+    
     svg
       .append("g")
-      .attr("class", "x axis")
+      .attr("class", "x_axis")
       .attr("transform", `translate(0, ${height - margin})`)
       .call(xAxis)
-      //.outerTickSize(0)
-      //.ticks(10)
       .selectAll("text")
       .style("text-anchor", "end")
       .attr("dx", "-.8em")
       .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");
+      .attr("transform", `translate(${X_posXLeg}, ${X_posYLeg}) rotate(${rotateXLabel})`);
+      
+    // d3.selectAll("g.x_axis g.tick text").node().remove();
+    // d3.selectAll("g.x_axis g.tick line").node().remove();
 
+    d3.selectAll("g.x_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", xGridSize)
+      .attr("x2", 0)
+      .attr("y2", 0)
+      .filter(function (d) { return d === 0;  }).remove();
+    
+    
     svg
       .append("g")
-      .attr("class", "y axis")
+      .attr("class", "y_axis")
       .call(yAxis)
       .append("text")
-      .attr("y", -30)
-      .attr("x", -90)
+      .attr("y", Y_posYLab)
+      .attr("x", Y_posXLab)
       .attr("transform", "rotate(-90)")
       .attr("fill", "#000")
       .text("Temperature (Deg F)");
+    
+    d3.selectAll("g.y_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", 0)
+      .attr("x2", yGridSize)
+      .attr("y2", 0);
+      
   };
-
+//////////////////////////////////////////////////////// PRESSURE /////////////////////////////////////////////////////////////////////////////////////////
   const renderMultiChartPressure = (datas) => {
     //d3.selectAll("div div svg").remove();
 
@@ -800,100 +703,27 @@ const Performance = (props) => {
     var data = Object.keys(group_to_values).map(function (key) {
       return { name: key, values: group_to_values[key] };
     });
-    //console.log(data);
-    // var data = [
-    //   {
-    //     name: "USA",
-    //     values: [
-    //       { date: "2000", price: "100" },
-    //       { date: "2001", price: "110" },
-    //       { date: "2002", price: "145" },
-    //       { date: "2003", price: "241" },
-    //       { date: "2004", price: "101" },
-    //       { date: "2005", price: "90" },
-    //       { date: "2006", price: "10" },
-    //       { date: "2007", price: "35" },
-    //       { date: "2008", price: "21" },
-    //       { date: "2009", price: "201" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Canada",
-    //     values: [
-    //       { date: "2000", price: "200" },
-    //       { date: "2001", price: "120" },
-    //       { date: "2002", price: "33" },
-    //       { date: "2003", price: "21" },
-    //       { date: "2004", price: "51" },
-    //       { date: "2005", price: "190" },
-    //       { date: "2006", price: "120" },
-    //       { date: "2007", price: "85" },
-    //       { date: "2008", price: "221" },
-    //       { date: "2009", price: "101" },
-    //     ],
-    //   },
-    //   {
-    //     name: "Maxico",
-    //     values: [
-    //       { date: "2000", price: "50" },
-    //       { date: "2001", price: "10" },
-    //       { date: "2002", price: "5" },
-    //       { date: "2003", price: "71" },
-    //       { date: "2004", price: "20" },
-    //       { date: "2005", price: "9" },
-    //       { date: "2006", price: "220" },
-    //       { date: "2007", price: "235" },
-    //       { date: "2008", price: "61" },
-    //       { date: "2009", price: "10" },
-    //     ],
-    //   },
-    // ];
-
-    var width = 600;
-    var height = 300;
-    var margin = 50;
-    var duration = 250;
-
-    // var lineOpacity = "0.25";
-    // var lineOpacityHover = "0.85";
-    // var otherLinesOpacityHover = "0.1";
-    // var lineStroke = "1.5px";
-    // var lineStrokeHover = "2.5px";
-
-    var lineOpacity = "0.90";
-    var lineOpacityHover = "1";
-    var otherLinesOpacityHover = "1";
-    var lineStroke = "5px";
-    var lineStrokeHover = "8px";
-
-    var circleOpacity = "0.85";
-    var circleOpacityOnLineHover = "0.25";
-    var circleRadius = 1;
-    var circleRadiusHover = 6;
+   
 
     /* Format Data */
-    //var parseDate = d3.timeParse("%YYYY-%MM-%DD %hh:%mm:%ss");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H:%M:%S");
-    //var parseDate = d3.timeFormat("%Y-%m-%d %H");
     data.forEach(function (d) {
       d.values.forEach(function (d) {
-        //d.DATE_STAMP = parseDate(new Date(d.DATE_STAMP));
         d.DATE_STAMP = new Date(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
-        //d.DATE_STAMP = parseDate(d.DATE_STAMP);
         d.PRESSURE = +d.PRESSURE;
       });
     });
+    
+    // var total_tick = tick(data);
 
     /* Scale */
     var xScale = d3
       .scaleTime()
       .domain(d3.extent(data[0].values, (d) => d.DATE_STAMP))
-      .range([0, width - margin]);
-
+      .range([0, width - margin])
+      
     var yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(data[0].values, (d) => d.PRESSURE)])
+      .domain([d3.min(data[0].values, (d) => d.PRESSURE) * marginBotDomain - botDomain, d3.max(data[0].values, (d) => d.PRESSURE) * marginTopDomain])
       .range([height - margin, 0]);
 
     var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -911,8 +741,8 @@ const Performance = (props) => {
     var line = d3
       .line()
       .x((d) => xScale(d.DATE_STAMP))
-      .y((d) => yScale(d.PRESSURE));
-
+      .y((d) => yScale(d.PRESSURE))
+      .curve(d3.curveMonotoneX);
     let lines = svg.append("g").attr("class", "lines");
 
     lines
@@ -921,7 +751,7 @@ const Performance = (props) => {
       .enter()
       .append("g")
       .attr("fill", "none")
-      .attr("stroke-width", 4)
+      .attr("stroke-width", lineStroke)
       .attr("class", "line-group")
       .on("mouseover", function (d, i) {
         svg
@@ -1002,36 +832,63 @@ const Performance = (props) => {
       });
 
     /* Add Axis into SVG */
-    var xAxis = d3.axisBottom(xScale).ticks(5);
-    var yAxis = d3.axisLeft(yScale).ticks(5);
-
+    var xAxis = d3.axisBottom(xScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0).tickFormat(d3.timeFormat("%d %b %H:%M"));
+    var yAxis = d3.axisLeft(yScale).ticks(5).tickSizeInner(tickSizeInner).tickSizeOuter(0) ;
+    
+    
     svg
       .append("g")
-      .attr("class", "x axis")
+      .attr("class", "x_axis")
       .attr("transform", `translate(0, ${height - margin})`)
       .call(xAxis)
-      //.outerTickSize(0)
-      //.ticks(10)
       .selectAll("text")
       .style("text-anchor", "end")
       .attr("dx", "-.8em")
       .attr("dy", ".15em")
-      .attr("transform", "rotate(-65)");
+      .attr("transform", `translate(${X_posXLeg}, ${X_posYLeg}) rotate(${rotateXLabel})`);
+      
+    // d3.selectAll("g.x_axis g.tick text").node().remove();
+    // d3.selectAll("g.x_axis g.tick line").node().remove();
 
+    d3.selectAll("g.x_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", xGridSize)
+      .attr("x2", 0)
+      .attr("y2", 0)
+      .filter(function (d) { return d === 0;  }).remove();
+    
+    
     svg
       .append("g")
-      .attr("class", "y axis")
+      .attr("class", "y_axis")
       .call(yAxis)
       .append("text")
-      .attr("y", -30)
-      .attr("x", -90)
+      .attr("y", Y_posYLab)
+      .attr("x", Y_posXLab)
       .attr("transform", "rotate(-90)")
       .attr("fill", "#000")
       .text("Pressure (Psig)");
+    
+    d3.selectAll("g.y_axis g.tick")
+      .append("line")
+      .attr("class", "gridline")
+      .attr("x1", 0)
+      .attr("y1", 0)
+      .attr("x2", yGridSize)
+      .attr("y2", 0);
+      
   };
 
   return (
     <div className="list row">
+      <div id="outer">
+        <div id="inner">
+          <h2>Performance</h2>  
+        </div>
+      </div>
+     
       <div id="chart1" style={{ width: "800px", float: "left" }}></div>
       <div id="chart2" style={{ width: "800px", float: "right" }}></div>
       <div id="chart3" style={{ width: "800px", float: "left" }}></div>

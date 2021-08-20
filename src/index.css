@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.chart .axis {
+  shape-rendering: crispEdges
+}
+.gridline{
+  stroke: black;
+  shape-rendering: crispEdges;
+  stroke-opacity: .2;
+  }
+
+#inner {
+  display: table;
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+
+#outer {
+  /* border: 1px solid red; */
+  width:100%
+}
