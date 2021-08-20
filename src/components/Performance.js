@@ -289,7 +289,6 @@ const Performance = (props) => {
       .attr("y2", 0)
       .filter(function (d) { return d === 0;  }).remove();
     
-    
     svg
       .append("g")
       .attr("class", "y_axis")
@@ -498,7 +497,6 @@ const Performance = (props) => {
       .attr("y1", 0)
       .attr("x2", yGridSize)
       .attr("y2", 0);
-      
   };
 //////////////////////////////////////////////////////// TEMPERATURE /////////////////////////////////////////////////////////////////////////////////////////
   const renderMultiChartTemperature = (datas) => {
@@ -524,7 +522,7 @@ const Performance = (props) => {
     });
     
     // var total_tick = tick(data);
-
+    
     /* Scale */
     var xScale = d3
       .scaleTime()
