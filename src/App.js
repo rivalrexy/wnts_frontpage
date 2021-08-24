@@ -12,6 +12,7 @@ import moment from "moment";
 import Home from "./components/Home";
 import Performance from "./components/Performance";
 import Menu from "./components/Mainmenu";
+import Report from "./components/Report";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -102,7 +103,8 @@ const App = () => {
               className="nav-link"
               data-widget="pushmenu"
               href="#"
-              role="button">
+              role="button"
+            >
               <i className="fas fa-bars" />
             </a>
           </li>
@@ -122,7 +124,8 @@ const App = () => {
               alignItems: "center",
               justifyContent: "center",
               transform: "translate(-10%, 0%)",
-            }}>
+            }}
+          >
             <Button onClick={onClickPrev} type="primary" shape="circle">
               {"<"}
             </Button>
@@ -143,7 +146,8 @@ const App = () => {
               alignItems: "center",
               justifyContent: "center",
               transform: "translate(10%, 0%)",
-            }}>
+            }}
+          >
             <Button onClick={onClickNext} type="primary" shape="circle">
               {">"}
             </Button>
@@ -173,6 +177,13 @@ const App = () => {
                       end={endDate}
                       isAuthed={true}
                     />
+                  )}
+                />
+                <Route
+                  exact
+                  path={["/Report"]}
+                  render={() => (
+                    <Report start={startDate} end={endDate} isAuthed={true} />
                   )}
                 />
                 {/* <Route path="/home/:id" component={Home} /> */}
