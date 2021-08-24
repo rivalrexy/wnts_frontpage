@@ -7,7 +7,10 @@ export const COLUMNS = [
     Header: "ASSET ID",
     accessor: "ASSET_ID",
   },
- 
+  {
+    Header: "DATE STAMP",
+    accessor: "DATE_STAMP",
+  },
   {
     Header: "VOLUME",
     accessor: "VOLUME_RATE",
