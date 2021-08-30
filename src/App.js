@@ -12,7 +12,11 @@ import GasCoOpDataService from "./services/GasCoOp";
 import Home from "./components/Home";
 import Performance from "./components/Performance";
 import Menu from "./components/Mainmenu";
+
+import Report from "./components/Report";
+
 import DataBrowser from "./components/DataBrowser";
+
 import Footer from "./components/Footer";
 import Report from "./components/Report";
 
@@ -141,6 +145,7 @@ const App = ({ children }) => {
   }
   return (
     <div className="wrapper">
+
       {/* {(() => {
         switch (userType) {
           case "Admin":
@@ -233,6 +238,7 @@ const App = ({ children }) => {
                   </div>
                 </div>
               </div>
+
             </div>
           )}
         />

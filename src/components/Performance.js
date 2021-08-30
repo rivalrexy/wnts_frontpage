@@ -1,3 +1,6 @@
+
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { useState, useEffect } from "react";
 import GasCoOpDataService from "../services/GasCoOp";
 import * as d3 from "d3";
@@ -9,7 +12,9 @@ const Performance = (props) => {
   const [performanceDate, setPerformanceDate] = useState([]);
 
   useEffect(() => {
+
     get(props.id, convertDate(props.start), convertDate(props.end));
+
 
   }, []);
 
@@ -879,6 +884,7 @@ const Performance = (props) => {
 
   return (
     <div className="list row">
+
       {
         performanceDate && performanceDate.map((performanceDate, i)=>{
           if (i === 0) {
@@ -895,6 +901,7 @@ const Performance = (props) => {
         })
       }
       
+
      
       <div id="chart1" style={{ width: "800px", float: "left" }}></div>
       <div id="chart2" style={{ width: "800px", float: "right" }}></div>
