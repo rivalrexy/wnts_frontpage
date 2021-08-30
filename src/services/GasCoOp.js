@@ -12,6 +12,10 @@ const getDate = (startDate, endDate) => {
   return http.get(`/GasCoOp/last/${startDate}/${endDate}`);
 };
 
+const getPivot = (id, startDate, endDate) => {
+  return http.get(`/GasCoOp/allpivot/${id}/${startDate}/${endDate}`);
+};
+
 // const create = (data) => {
 //   return http.post("/GasCoOp", data);
 // };
@@ -36,6 +40,7 @@ const values = {
   getAll,
   get,
   getDate,
+  getPivot,
   // create,
   // update,
   // remove,
