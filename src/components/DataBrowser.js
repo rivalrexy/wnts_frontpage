@@ -352,7 +352,7 @@ const DataBrowser = (props) => {
   function openModal2() {
     set2IsOpen(true);
   }
-
+//for line chart
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     //if(headerVal==='VOLUME'){
@@ -678,6 +678,7 @@ const DataBrowser = (props) => {
   return (
     <div className="list row">
       <div>
+        {/* modal untuk chart */}
         <Modal
           isOpen={modalIsOpen}
           onAfterOpen={afterOpenModal}
@@ -733,6 +734,7 @@ const DataBrowser = (props) => {
         </Modal>
 
         <Modal
+          // modal untuk filter table
           isOpen={modal2IsOpen}
           onAfterOpen={afterOpenModal}
           onRequestClose={close2Modal}
