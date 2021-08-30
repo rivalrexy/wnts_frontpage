@@ -182,7 +182,7 @@ const Home = (props) => {
                           return (
                             <tr
                               {...row.getRowProps()}
-                              onClick={() => console.log(row.original)}>
+                              onClick={() => console.log(row.original.ASSET_ID)}>
                               {/* <td></td> */}
                               <th colSpan="2" style={{ textAlign: "center" }}>
                                 HANG TUAH
