@@ -896,6 +896,7 @@ const Performance = (props) => {
               </div>
             )
           }
+          return null
           
 
         })
