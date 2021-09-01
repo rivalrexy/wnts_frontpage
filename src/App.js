@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useLocation } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -18,7 +18,7 @@ import Report from "./components/Report";
 import DataBrowser from "./components/DataBrowser";
 
 import Footer from "./components/Footer";
-import Report from "./components/Report";
+
 
 const App = ({ children }) => {
   //const [startDate, setStartDate] = useState(new Date());
@@ -37,7 +37,7 @@ const App = ({ children }) => {
   useEffect(() => {
     retrieveAsset(convertDate(startDate), convertDate(endDate));
     console.log("didMountapp");
-  }, []);
+  }, [startDate, endDate]);
 
   const convertDate = (dates) => {
     let date_ob = new Date(dates);
