@@ -91,40 +91,6 @@ const Home = (props) => {
       });
   };
 
-  // const columns = useMemo(
-  //   () => [
-  //     // {
-  //     //   Header: "DATE STAMP",
-  //     //   accessor: "DATE_STAMP",
-  //     // },
-  //     {
-  //       Header: "VOLUME",
-  //       accessor: "VOLUME",
-  //     },
-  //     {
-  //       Header: "ENERGY",
-  //       accessor: "ENERGY",
-  //     },
-  //     {
-  //       Header: "TEMPERATURE",
-  //       accessor: "TEMPERATURE",
-  //     },
-  //     {
-  //       Header: "PRESSURE",
-  //       accessor: "PRESSURE",
-  //     },
-  //     {
-  //       Header: "ENERGY RATE",
-  //       accessor: "ENERGY_RATE",
-  //     },
-  //     {
-  //       Header: "VOLUME RATE",
-  //       accessor: "VOLUME_RATE",
-  //     },
-  //   ],
-  //   []
-  // );
-
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,
@@ -133,19 +99,31 @@ const Home = (props) => {
     });
 
   return (
-    <div className="list row">
-      {/* {console.log("rendered")} */}
+    <div className="list row" 
+      // style ={{
+      //   position: "fixed",
+      //   padding: "2em",
+      //   left: "50%",
+      //   top: "50%",
+      //   transform: `translate(-50%, -50%)`
+      //   }}
+        >
+      
       <div
         style={{
           // display: "flex",
           // justifyContent:'center',
           // alignItems:'center',
           backgroundImage: `url(${process.env.PUBLIC_URL + "/bgWNTSRev2.png"})`,
-          backgroundPosition: "center",
+          backgroundPosition: "center center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          width: "100vw",
+          backgroundAttachment: "fix",
+          width: "95vw",
           height: "95vh",
+          // position: "absolute",
+          // // zIndex: "1",
+          // overflowX: "auto",
           // height: "850px",
           //height: "100%",
           //maxWidth: "100%",
@@ -154,13 +132,13 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10vw",
-              height: "10vh",
+              width: "15%",
+              height: "10%",
               //width: "10%",
               //height: "20%",
               fontSize: "10px",
               top: "25%",
-              left: "20%",
+              left: "12.5%",
               transform: `translate(50%, 50%)`,
               //marginLeft: "500px",
               //marginTop: "200px",
@@ -169,7 +147,7 @@ const Home = (props) => {
               zIndex: "0",
               overflowX: "auto",
             },
-          })}>
+          })} onClick={() => console.log("test")}>
           <tbody {...getTableBodyProps()}>
             {headerGroups.map((headerGroup) =>
               headerGroup.headers.map((column, a) =>
@@ -182,7 +160,7 @@ const Home = (props) => {
                           return (
                             <tr
                               {...row.getRowProps()}
-                              onClick={() => console.log(row.original.ASSET_ID)}>
+                              onClick={() => console.log(row.original)}>
                               {/* <td></td> */}
                               <th colSpan="2" style={{ textAlign: "center" }}>
                                 HANG TUAH
@@ -291,11 +269,11 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10vw",
-              height: "10vh",
+              width: "15%",
+              height: "10%",
               fontSize: "10px",
               top: "2%",
-              left: "35%",
+              left: "30%",
               transform: `translate(50%, 5%)`,
               // display: "inline-block",
               position: "absolute",
@@ -435,10 +413,10 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10vw",
-              height: "10vh",
+              width: "15%",
+              height: "10%",
               fontSize: "10px",
-              top: "25%",
+              top: "28%",
               left: "70%",
               transform: `translate(75%, 2%)`,
               // width: "8vw",
@@ -577,11 +555,11 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10vw",
-              height: "10vh",
+              width: "15%",
+              height: "10%",
               fontSize: "10px",
-              top: "2%",
-              left: "70%",
+              top: "4%",
+              left: "67%",
               transform: `translate(75%, 2%)`,
 
               // width: "8vw",
@@ -719,11 +697,11 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10vw",
-              height: "10vh",
+              width: "15%",
+              height: "10%",
               fontSize: "10px",
               top: "42%",
-              left: "60%",
+              left: "54.5%",
               transform: `translate(75%, 2%)`,
               // width: "8vw",
               // height: "10vh",
@@ -860,11 +838,11 @@ const Home = (props) => {
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10vw",
-              height: "10vh",
+              width: "15%",
+              height: "10%",
               fontSize: "10px",
-              top: "65%",
-              left: "2%",
+              top: "52%",
+              left: "0.5%",
               transform: `translate(2%, 50%)`,
               // width: "8vw",
               // height: "10vh",
@@ -998,7 +976,7 @@ const Home = (props) => {
           </tbody>
         </table>
 
-        <table
+        {/* <table
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
@@ -1021,7 +999,7 @@ const Home = (props) => {
                     prepareRow(row);
                     return (
                       row.cells
-                        // .filter((rows2) => rows2.ASSET_ID == 1)
+
                         .map((cell, i) => {
                           if (a === i) {
                             if (column.render("Header") === "ASSET ID") {
@@ -1029,7 +1007,7 @@ const Home = (props) => {
                                 <tr
                                   {...row.getRowProps()}
                                   onClick={() => console.log(row.original)}>
-                                  {/* <td></td> */}
+
                                   <th
                                     colSpan="2"
                                     style={{
@@ -1045,7 +1023,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1059,7 +1037,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                    0 BBTU/D
                                   </td>
                                 </tr>
                               );
@@ -1067,7 +1045,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1081,7 +1059,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                    }0 MMSCFD
                                   </td>
                                 </tr>
                               );
@@ -1091,7 +1069,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1105,7 +1083,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                    0 Deg F
                                   </td>
                                 </tr>
                               );
@@ -1113,7 +1091,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1127,7 +1105,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 Psig
+                                    0 Psig
                                   </td>
                                 </tr>
                               );
@@ -1140,9 +1118,9 @@ const Home = (props) => {
               )
             )}
           </tbody>
-        </table>
+        </table> */}
 
-        <table
+        {/* <table
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
@@ -1165,7 +1143,7 @@ const Home = (props) => {
                     prepareRow(row);
                     return (
                       row.cells
-                        // .filter((rows2) => rows2.ASSET_ID == 1)
+
                         .map((cell, i) => {
                           if (a === i) {
                             if (column.render("Header") === "ASSET ID") {
@@ -1173,7 +1151,7 @@ const Home = (props) => {
                                 <tr
                                   {...row.getRowProps()}
                                   onClick={() => console.log(row.original)}>
-                                  {/* <td></td> */}
+
                                   <th
                                     colSpan="2"
                                     style={{
@@ -1189,7 +1167,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1203,7 +1181,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                    0 BBTU/D
                                   </td>
                                 </tr>
                               );
@@ -1211,7 +1189,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1225,7 +1203,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                    0 MMSCFD
                                   </td>
                                 </tr>
                               );
@@ -1235,7 +1213,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1249,7 +1227,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                    0 Deg F
                                   </td>
                                 </tr>
                               );
@@ -1257,7 +1235,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1271,7 +1249,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 Psig
+                                    0 Psig
                                   </td>
                                 </tr>
                               );
@@ -1284,23 +1262,23 @@ const Home = (props) => {
               )
             )}
           </tbody>
-        </table>
+        </table> */}
 
         <table
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
-              width: "10vw",
-              height: "10vh",
+              width: "15%",
+              height: "10%",
               fontSize: "10px",
-              top: "55%",
-              left: "46%",
+              top: "60%",
+              left: "40%",
               transform: `translate(50%, 5%)`,
               // display: "inline-block",
               position: "absolute",
               //zIndex: "0",
             },
-          })}>
+          })} onClick={() => console.log("test")}>
           <tbody {...getTableBodyProps()}>
             {headerGroups.map((headerGroup) =>
               headerGroup.headers.map((column, a) =>
@@ -1317,7 +1295,6 @@ const Home = (props) => {
                                 <tr
                                   {...row.getRowProps()}
                                   onClick={() => console.log(row.original)}>
-                                  {/* <td></td> */}
                                   <th
                                     colSpan="2"
                                     style={{
@@ -1430,7 +1407,7 @@ const Home = (props) => {
           </tbody>
         </table>
 
-        <table
+        {/* <table
           className="table table-striped  table-dark"
           {...getTableProps({
             style: {
@@ -1461,7 +1438,7 @@ const Home = (props) => {
                                 <tr
                                   {...row.getRowProps()}
                                   onClick={() => console.log(row.original)}>
-                                  {/* <td></td> */}
+
                                   <th
                                     colSpan="2"
                                     style={{
@@ -1477,7 +1454,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1491,7 +1468,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 BBTU/D
+                                    0 BBTU/D
                                   </td>
                                 </tr>
                               );
@@ -1499,7 +1476,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1513,7 +1490,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 MMSCFD
+                                    0 MMSCFD
                                   </td>
                                 </tr>
                               );
@@ -1523,7 +1500,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1537,7 +1514,7 @@ const Home = (props) => {
                                       paddingTop: "2px",
                                       paddingBottom: "2px",
                                     }}>
-                                    {/* {cell.render("Cell")}  */}0 Deg F
+                                    0 Deg F
                                   </td>
                                 </tr>
                               );
@@ -1545,7 +1522,7 @@ const Home = (props) => {
                               return (
                                 <tr
                                   {...row.getRowProps()}
-                                  //data-href="#"
+
                                   onClick={() => console.log("test")}>
                                   <th
                                     style={{
@@ -1561,7 +1538,7 @@ const Home = (props) => {
                                     }}>
                                     {" "}
                                     0 Psig
-                                    {/* {cell.render("Cell")} Psig */}
+
                                   </td>
                                 </tr>
                               );
@@ -1574,7 +1551,7 @@ const Home = (props) => {
               )
             )}
           </tbody>
-        </table>
+        </table> */}
       </div>
     </div>
   );

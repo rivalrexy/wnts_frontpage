@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useMemo } from "react";
 import GasCoOpDataService from "../services/GasCoOp";
 import {
@@ -19,7 +20,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const DataBrowser = (props) => {
   const [homeDate, setHomeDate] = useState([]);
-  const [homeDate2, setHomeDate2] = useState([]);
+  const [, setHomeDate2] = useState([]);
   const [optionData, setOption] = useState([]);
   const columns = useMemo(() => COLUMNS, []);
   const [headerVal, setHeaderVal] = useState("");
@@ -52,6 +53,7 @@ const DataBrowser = (props) => {
     getPivot(props.id, convertDate(props.start), convertDate(props.end))
     console.log("didMount");
   }, []);
+  
   
   const options = [
     { value: 'C1', label: 'C1' },
@@ -303,7 +305,7 @@ const DataBrowser = (props) => {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    rows,
+    // rows,
     prepareRow,
     page, // Instead of using 'rows', we'll use page,
     // which has only the rows for the active page
@@ -440,9 +442,9 @@ const DataBrowser = (props) => {
   var width = 600;
   var height = 400;
   var margin = 50;
-  var marginBotDomain = 0.8;
-  var marginTopDomain = 1.2;
-  var botDomain = 10;
+  // var marginBotDomain = 0.8;
+  // var marginTopDomain = 1.2;
+  // var botDomain = 10;
   var duration = 250;
   var tickSizeInner = 5;
   var xGridSize = -height + margin;
@@ -685,7 +687,7 @@ const DataBrowser = (props) => {
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel="Example Modal">
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}></h2>
+          <h8 ref={(_subtitle) => (subtitle = _subtitle)}></h8>
           <button onClick={closeModal} style={{backgroundColor: 'red', color: 'white'}}>close</button>
           <div>
           {
@@ -699,6 +701,7 @@ const DataBrowser = (props) => {
                   </div>
                 )
               }
+              return null
               
 
             })
