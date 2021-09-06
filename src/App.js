@@ -18,7 +18,7 @@ import Report from "./components/Report";
 import DataBrowser from "./components/DataBrowser";
 
 import Footer from "./components/Footer";
-import Report from "./components/Report";
+
 
 const App = ({ children }) => {
   //const [startDate, setStartDate] = useState(new Date());
