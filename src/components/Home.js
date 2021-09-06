@@ -9,9 +9,18 @@ import { COLUMNS } from "./columns";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import "antd/dist/antd.css";
+import Modal from "antd/es/modal/Modal";
+import Draggable from "react-draggable";
+import Button from "antd/es/button";
+
+
+
 const Home = (props) => {
   const [homeDate, setHomeDate] = useState([]);
   const columns = useMemo(() => COLUMNS, []);
+  const [visible, setVisible] = useState(false);
+
 
   useEffect(() => {
     getDate(convertDate(props.start), convertDate(props.end));
@@ -38,6 +47,10 @@ const Home = (props) => {
   //   }
   //   return jsonVal;
   // };
+
+
+
+
 
   const convertDate = (dates) => {
     let date_ob = new Date(dates);
@@ -98,7 +111,10 @@ const Home = (props) => {
       //data: home,
     });
 
+
+
   return (
+
     <div className="list row" 
       // style ={{
       //   position: "fixed",
@@ -109,6 +125,7 @@ const Home = (props) => {
       //   }}
         >
       
+
       <div
         style={{
           // display: "flex",
@@ -149,12 +166,47 @@ const Home = (props) => {
             },
           })} onClick={() => console.log("test")}>
           <tbody {...getTableBodyProps()}>
+        
+              <div>
+                    <Button onClick={() => setVisible(true)} type="primary">
+                      Chart
+                    </Button>
+                    <Modal
+                        title="Customize the theme to your liking"
+                        centered
+                        visible={visible}
+                        onOk={() => setVisible(false)}
+                        onCancel={() => setVisible(false)}
+                        width={700}
+                    >
+                      <div className={"SideBarModal_Wrapper"}>
+                      <div className={"SideBarModal_Appearance"}>
+                        <div className={"SideBarModal_Child_Appearance"}>
+                          <p>Appearance</p>
+                        </div>
+
+                        <div>{props.SideBarWallpaperList}</div>
+                      </div>
+
+                      <div className={"SideBarModal_Accept_Color"}>
+                        <div className={"SideBarModal_Child_Color"}>
+                          <p>Colors</p>
+                        </div>
+
+                        <div>{props.list}</div>
+                      </div>
+                </div>
+                    </Modal>
+              </div>
+          
             {headerGroups.map((headerGroup) =>
               headerGroup.headers.map((column, a) =>
                 rows.map((row, b) => {
                   if (b === 3) {
                     prepareRow(row);
                     return row.cells.map((cell, i) => {
+                      
+                     
                       if (a === i) {
                         if (column.render("Header") === "ASSET ID") {
                           return (
@@ -1555,6 +1607,18 @@ const Home = (props) => {
       </div>
     </div>
   );
+
+
+
+
+
+
+ 
+
+  
+
 };
+
+
 
 export default Home;
