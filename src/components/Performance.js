@@ -1,3 +1,4 @@
+
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import React, { useState, useEffect } from "react";
@@ -11,17 +12,19 @@ const Performance = (props) => {
   const [performanceDate, setPerformanceDate] = useState([]);
 
   useEffect(() => {
-    getDate("1", convertDate(props.start), convertDate(props.end));
+
+    get(props.id, convertDate(props.start), convertDate(props.end));
+
 
   }, []);
 
   useEffect(() => {
     if (performanceDate.length > 0) {
-      getDate("1", convertDate(props.start), convertDate(props.end));
+      get(props.id, convertDate(props.start), convertDate(props.end));
 
       //console.log("didUpdate");
     }
-  }, [props.start, props.end]);
+  }, [props.id, props.start, props.end]);
 
   const convertDate = (dates) => {
     let date_ob = new Date(dates);
@@ -46,7 +49,7 @@ const Performance = (props) => {
     );
   };
 
-  const getDate = (id, startDate, endDate) => {
+  const get = (id, startDate, endDate) => {
     GasCoOpDataService.get(id, startDate, endDate)
       .then((response) => {
         const newJSON = response.data;
@@ -881,11 +884,25 @@ const Performance = (props) => {
 
   return (
     <div className="list row">
-      <div id="outer">
-        <div id="inner">
-          <h2>Performance</h2>  
-        </div>
-      </div>
+
+      {
+        performanceDate && performanceDate.map((performanceDate, i)=>{
+          if (i === 0) {
+            return(
+              <div id="outer">
+                <div id="inner">
+                  <h2 style={{ textAlign: 'center'}}>Performance {performanceDate.NAME}</h2>  
+                </div>
+              </div>
+            )
+          }
+          return null
+          
+
+        })
+      }
+      
+
      
       <div id="chart1" style={{ width: "800px", float: "left" }}></div>
       <div id="chart2" style={{ width: "800px", float: "right" }}></div>

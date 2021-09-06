@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useLocation } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -37,7 +37,7 @@ const App = ({ children }) => {
   useEffect(() => {
     retrieveAsset(convertDate(startDate), convertDate(endDate));
     console.log("didMountapp");
-  }, []);
+  }, [startDate, endDate]);
 
   const convertDate = (dates) => {
     let date_ob = new Date(dates);
@@ -275,13 +275,13 @@ const App = ({ children }) => {
                       justifyContent: "center",
                       transform: "translate(-10%, 0%)",
                     }}>
-                    {/* <select>
+                    <select onChange={handleChange}>
                       {asset.map((option) => (
                         <option value={option.ASSET_ID}>
-                          {option.ASSET_ID}
+                          {option.NAME}
                         </option>
                       ))}
-                    </select> */}
+                    </select>
                     <Button onClick={onClickPrev} type="primary" shape="circle">
                       {"<"}
                     </Button>
@@ -315,7 +315,7 @@ const App = ({ children }) => {
                 <div className="content">
                   <div className="card">
                     <div className="card-body">
-                      <Performance start={startDate} end={endDate} isAuthed={true} />
+                      <Performance start={startDate} end={endDate} isAuthed={true} id ={assetValue} />
                       <div className="d-flex flex-row justify-content-end"></div>
                     </div>
                   </div>
@@ -433,6 +433,14 @@ const App = ({ children }) => {
                 <ul className="navbar-nav ml-auto">
                   {/* <Space direction="vertical" size={12}> */}
                   {/* <TimePicker needsConfirmation={true} /> */}
+                  AreaName : &nbsp;&nbsp; <select onChange={handleChange}>
+                      {asset.map((option) => (
+                        <option value={option.ASSET_ID}>
+                          {option.NAME}
+                        </option>
+                      ))}
+                    </select>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <div
                     style={{
                       display: "flex",
@@ -440,13 +448,7 @@ const App = ({ children }) => {
                       justifyContent: "center",
                       transform: "translate(-10%, 0%)",
                     }}>
-                    <select onChange={handleChange}>
-                      {asset.map((option) => (
-                        <option value={option.ASSET_ID}>
-                          {option.ASSET_ID}
-                        </option>
-                      ))}
-                    </select>
+                    
                     <Button onClick={onClickPrev} type="primary" shape="circle">
                       {"<"}
                     </Button>
