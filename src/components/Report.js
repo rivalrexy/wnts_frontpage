@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 import React , { useState, useEffect } from "react";
 import IframeComm from "react-iframe-comm";
@@ -5,7 +6,7 @@ import GasCoOpDataService from "../services/GasCoOp";
 import "react-datepicker/dist/react-datepicker.css";
 const Report = (props) => {
     const [performanceDate, setPerformanceDate] = useState([]);
-    const [url, setUrl] = useState("");
+    // const [url, setUrl] = useState("");
 
     useEffect(() => {
         getDate(convertDate(props.start), convertDate(props.end));

@@ -11,7 +11,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import "antd/dist/antd.css";
 import Modal from "antd/es/modal/Modal";
-import Draggable from "react-draggable";
+// import Draggable from "react-draggable";
 import Button from "antd/es/button";
 
 
